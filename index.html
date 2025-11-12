@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FillySteeze Accounting Academy</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero" id="top">
+        <nav class="nav">
+            <div class="logo">FillySteeze Accounting Academy</div>
+            <ul class="nav__links">
+                <li><a href="#modules">Learning Path</a></li>
+                <li><a href="#flashcards">Flashcards</a></li>
+                <li><a href="#quizzes">Quizzes</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#community">Community</a></li>
+            </ul>
+            <button class="nav__toggle" aria-label="Toggle navigation">☰</button>
+        </nav>
+        <div class="hero__content">
+            <h1>Master Accounting the Interactive Way</h1>
+            <p>Build financial confidence with guided lessons, hands-on exercises, and immersive practice scenarios.</p>
+            <div class="hero__actions">
+                <a class="button button--primary" href="#modules">Start Learning</a>
+                <a class="button button--secondary" href="#demo">Try a Demo Lesson</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section section--light" id="demo">
+            <div class="section__header">
+                <h2>Interactive Demo: Recording a Journal Entry</h2>
+                <p>Follow the steps to record a cash sale. Drag the account tiles into the correct debit or credit bucket.</p>
+            </div>
+            <div class="demo" data-demo>
+                <div class="demo__instruction">Drag and drop the accounts to their correct columns.</div>
+                <div class="demo__board">
+                    <div class="demo__column" data-column="debit">
+                        <h3>Debit</h3>
+                        <div class="demo__dropzone" data-dropzone="debit"></div>
+                    </div>
+                    <div class="demo__accounts" data-accounts>
+                        <div class="demo__tile" draggable="true" data-answer="debit">Cash (+)</div>
+                        <div class="demo__tile" draggable="true" data-answer="credit">Sales Revenue (+)</div>
+                        <div class="demo__tile" draggable="true" data-answer="credit">Sales Tax Payable (+)</div>
+                    </div>
+                    <div class="demo__column" data-column="credit">
+                        <h3>Credit</h3>
+                        <div class="demo__dropzone" data-dropzone="credit"></div>
+                    </div>
+                </div>
+                <button class="button button--primary demo__check" data-check>Check my entry</button>
+                <div class="demo__result" role="status" aria-live="polite" data-result></div>
+            </div>
+        </section>
+
+        <section class="section" id="modules">
+            <div class="section__header">
+                <h2>Structured Learning Path</h2>
+                <p>Progress through essential accounting topics with short lessons and practice activities.</p>
+            </div>
+            <div class="modules" data-accordion>
+                <article class="module" data-module>
+                    <header class="module__header">
+                        <h3>1. Accounting Foundations</h3>
+                        <button class="module__toggle" aria-label="Toggle module">Expand</button>
+                    </header>
+                    <div class="module__content">
+                        <p>Understand the accounting equation, double-entry bookkeeping, and the flow of financial data.</p>
+                        <ul>
+                            <li>Video: The Balance Sheet Equation</li>
+                            <li>Simulation: Identify Debits & Credits</li>
+                            <li>Practice: Analyze basic transactions</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="module" data-module>
+                    <header class="module__header">
+                        <h3>2. Financial Statements</h3>
+                        <button class="module__toggle" aria-label="Toggle module">Expand</button>
+                    </header>
+                    <div class="module__content">
+                        <p>Break down income statements, balance sheets, and cash flow statements using guided walkthroughs.</p>
+                        <ul>
+                            <li>Interactive Builder: Create a mini income statement</li>
+                            <li>Downloadable Template: Statement cheat sheets</li>
+                            <li>Practice: Classify accounts by statement</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="module" data-module>
+                    <header class="module__header">
+                        <h3>3. Managerial Accounting</h3>
+                        <button class="module__toggle" aria-label="Toggle module">Expand</button>
+                    </header>
+                    <div class="module__content">
+                        <p>Apply cost-volume-profit analysis, budgeting, and variance analysis through interactive calculators.</p>
+                        <ul>
+                            <li>Case Study: Break-even analysis</li>
+                            <li>Scenario: Budget variance investigation</li>
+                            <li>Practice: Cost classification drag-and-drop</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section section--light" id="flashcards">
+            <div class="section__header">
+                <h2>Flashcards & Key Terms</h2>
+                <p>Tap a card to flip between definitions and real-world examples.</p>
+            </div>
+            <div class="flashcards" data-flashcards>
+                <div class="flashcard" tabindex="0">
+                    <div class="flashcard__front">Assets</div>
+                    <div class="flashcard__back">Resources owned by a business that are expected to provide future benefits. Example: Cash, inventory.</div>
+                </div>
+                <div class="flashcard" tabindex="0">
+                    <div class="flashcard__front">Liabilities</div>
+                    <div class="flashcard__back">Obligations owed to external parties. Example: Accounts payable, loans.</div>
+                </div>
+                <div class="flashcard" tabindex="0">
+                    <div class="flashcard__front">Accrual Accounting</div>
+                    <div class="flashcard__back">Recognizing revenues and expenses when they are incurred, not when cash is exchanged.</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="quizzes">
+            <div class="section__header">
+                <h2>Quick Knowledge Check</h2>
+                <p>Answer the questions and get instant feedback. Questions change every time you load the page.</p>
+            </div>
+            <form class="quiz" data-quiz>
+                <div class="quiz__question" data-question>
+                    <p class="quiz__prompt"></p>
+                    <div class="quiz__choices"></div>
+                </div>
+                <button type="submit" class="button button--primary">Submit Answer</button>
+                <div class="quiz__result" data-quiz-result aria-live="polite"></div>
+            </form>
+        </section>
+
+        <section class="section section--light" id="tools">
+            <div class="section__header">
+                <h2>Practice Tools</h2>
+                <p>Use calculators to test what-if scenarios for break-even points and ratio analysis.</p>
+            </div>
+            <div class="tools">
+                <div class="tool">
+                    <h3>Break-even Calculator</h3>
+                    <form data-breakeven>
+                        <label>
+                            Fixed Costs ($)
+                            <input type="number" name="fixed" min="0" step="0.01" required>
+                        </label>
+                        <label>
+                            Price per Unit ($)
+                            <input type="number" name="price" min="0" step="0.01" required>
+                        </label>
+                        <label>
+                            Variable Cost per Unit ($)
+                            <input type="number" name="variable" min="0" step="0.01" required>
+                        </label>
+                        <button type="submit" class="button button--secondary">Calculate</button>
+                        <p class="tool__result" data-breakeven-result></p>
+                    </form>
+                </div>
+                <div class="tool">
+                    <h3>Current Ratio Analyzer</h3>
+                    <form data-ratio>
+                        <label>
+                            Current Assets ($)
+                            <input type="number" name="assets" min="0" step="0.01" required>
+                        </label>
+                        <label>
+                            Current Liabilities ($)
+                            <input type="number" name="liabilities" min="0" step="0.01" required>
+                        </label>
+                        <button type="submit" class="button button--secondary">Evaluate</button>
+                        <p class="tool__result" data-ratio-result></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="community">
+            <div class="section__header">
+                <h2>Study Community</h2>
+                <p>Stay motivated with weekly challenges, live Q&A sessions, and a private Discord group.</p>
+            </div>
+            <div class="community">
+                <article class="community__card">
+                    <h3>Weekly Challenges</h3>
+                    <p>Apply what you've learned through realistic business scenarios. Submit solutions and compare with peers.</p>
+                </article>
+                <article class="community__card">
+                    <h3>Office Hours</h3>
+                    <p>Join live sessions with instructors to review tricky concepts and work through problems together.</p>
+                </article>
+                <article class="community__card">
+                    <h3>Peer Support</h3>
+                    <p>Access the community forum for accountability partners, feedback, and resource sharing.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__content">
+            <p>&copy; <span data-year></span> FillySteeze Accounting Academy. All rights reserved.</p>
+            <a href="#top" class="footer__top">Back to top ↑</a>
+        </div>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
