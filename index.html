@@ -3,40 +3,169 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Meet Mia</title>
+  <title>BrightSteps Learning</title>
 
   <!-- CONNECT CSS -->
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+  <header class="top-nav">
+    <div class="brand">
+      <span class="brand-icon">✨</span>
+      <span>BrightSteps</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#paths">Learning Paths</a>
+      <a href="#features">Why Us</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#stories">Stories</a>
+    </nav>
+    <button class="nav-cta" type="button">Join Free</button>
+  </header>
+
   <main class="container">
-
-    <section class="character-hero">
-      <h1 class="hero-title">⭐ Meet Mia ✨</h1>
-
-      <p class="hero-subtitle">
-        A curious, playful explorer with a big heart and an even bigger imagination.
-      </p>
-
+    <section class="hero">
+      <div class="hero-content">
+        <p class="hero-badge">For ages 6-14 · Project-based learning</p>
+        <h1>Build curiosity into real-world skills.</h1>
+        <p class="hero-subtitle">
+          BrightSteps is a playful learning website that mixes storytelling, hands-on projects,
+          and friendly mentors so kids learn faster and with more confidence.
+        </p>
+        <div class="hero-actions">
+          <button id="startBtn" class="start-button" type="button">
+            Start a learning quest →
+          </button>
+          <button class="ghost-button" type="button">View sample lessons</button>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <h3>120+</h3>
+            <p>Interactive lessons</p>
+          </div>
+          <div>
+            <h3>35</h3>
+            <p>Creative projects</p>
+          </div>
+          <div>
+            <h3>4.9/5</h3>
+            <p>Parent rating</p>
+          </div>
+        </div>
+      </div>
       <div class="hero-character">
         <img src="mia.png" alt="Mia ready for adventure" class="hero-image">
+        <div class="hero-card">
+          <h2>Meet Mia</h2>
+          <p>She guides learners through every quest with kindness and curiosity.</p>
+        </div>
       </div>
-
-      <div class="hero-info">
-        <h2 class="character-name">Mia</h2>
-        <p class="character-description">Brave • Curious • Kind</p>
-      </div>
-
-      <button id="startBtn" class="start-button" type="button">
-        Start the Adventure →
-      </button>
     </section>
 
+    <section id="paths" class="section">
+      <div class="section-header">
+        <h2>Choose a learning path</h2>
+        <p>Mix and match tracks designed for confident, joyful learning.</p>
+      </div>
+      <div class="card-grid">
+        <article class="info-card">
+          <h3>Story Lab</h3>
+          <p>Craft adventures, build vocabulary, and publish mini-books.</p>
+          <span>12 modules</span>
+        </article>
+        <article class="info-card">
+          <h3>Science Studio</h3>
+          <p>Try safe experiments and explore space, nature, and tech.</p>
+          <span>15 modules</span>
+        </article>
+        <article class="info-card">
+          <h3>Creative Coding</h3>
+          <p>Design games, puzzles, and animations with block coding.</p>
+          <span>18 modules</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="features" class="section highlight">
+      <div class="section-header">
+        <h2>Why families choose BrightSteps</h2>
+      </div>
+      <div class="feature-list">
+        <div>
+          <h3>Mentor-led missions</h3>
+          <p>Live weekly sessions with caring mentors who personalize feedback.</p>
+        </div>
+        <div>
+          <h3>Guided routines</h3>
+          <p>Weekly plans keep learners focused with gentle reminders and goals.</p>
+        </div>
+        <div>
+          <h3>Safe social circle</h3>
+          <p>Kids share projects in a moderated, encouraging community.</p>
+        </div>
+        <div>
+          <h3>Parent dashboard</h3>
+          <p>Track progress, celebrate wins, and discover next steps.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="schedule" class="section">
+      <div class="section-header">
+        <h2>Weekly learning flow</h2>
+        <p>Consistent rhythm that fits around school and family time.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h4>Monday · Launch Quest</h4>
+          <p>Kids explore a new story, watch a short video, and set a goal.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>Wednesday · Practice Lab</h4>
+          <p>Hands-on activities with guidance and hints from mentors.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>Friday · Share & Celebrate</h4>
+          <p>Showcase projects, earn badges, and reflect on progress.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="stories" class="section testimonial">
+      <div class="section-header">
+        <h2>Families love the transformation</h2>
+      </div>
+      <div class="testimonial-grid">
+        <article>
+          <p>“My daughter asks to log in every afternoon. She’s writing stories nonstop.”</p>
+          <span>— The Parkers</span>
+        </article>
+        <article>
+          <p>“The mentor feedback is so thoughtful. We finally see real progress.”</p>
+          <span>— Jordan & Lee</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section newsletter">
+      <div>
+        <h2>Get a free starter kit</h2>
+        <p>Receive printable activities and a mini-lesson each week.</p>
+      </div>
+      <form id="newsletterForm" class="newsletter-form">
+        <input type="email" name="email" placeholder="Parent email address" required>
+        <button type="submit">Send it to me</button>
+      </form>
+      <p id="newsletterMessage" class="newsletter-message" aria-live="polite"></p>
+    </section>
   </main>
+
+  <footer class="footer">
+    <p>BrightSteps Learning · Made with care for curious minds.</p>
+  </footer>
 
   <!-- CONNECT JS -->
   <script src="app.js"></script>
 </body>
-    <script src="app.js"></script>
 </html>
