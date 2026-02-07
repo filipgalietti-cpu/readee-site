@@ -1,57 +1,29 @@
-.hero {
-    background: url('hero-background.jpg') no-repeat center center/cover;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
+.character-card {
+  background: linear-gradient(135deg, #9b59b6, #8e44ad);
+  border: 2px solid #8e44ad;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 15px;
+  transition: transform 0.3s;
 }
 
-.card {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin: 20px;
-    padding: 20px;
-    transition: transform 0.2s;
+.character-card:hover {
+  transform: scale(1.05);
 }
 
-.card:hover {
-    transform: scale(1.05);
+.character-name {
+  font-size: 24px;
+  color: white;
+  text-shadow: 1px 1px 2px black;
 }
 
-.button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.character-description {
+  font-size: 16px;
+  color: #ecf0f1;
 }
 
-.button:hover {
-    background-color: #0056b3;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.responsive {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
-@media (max-width: 600px) {
-    .hero {
-        height: 60vh;
-    }
-    .card {
-        width: 100%;
-    }
+body {
+  background: linear-gradient(180deg, #c39bd3, #d7bde2);
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  padding: 20px;
 }
