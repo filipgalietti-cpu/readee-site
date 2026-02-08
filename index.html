@@ -3,82 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>School Directory Landing Page</title>
+    <title>Fun Learning Zone 🌈</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background: #35424a;
-            color: #ffffff;
-            padding: 10px 20px;
+            background: linear-gradient(135deg, #FF7F50, #FF69B4, #1E90FF);
+            font-family: 'Arial', sans-serif;
+            color: white;
             text-align: center;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-        }
-        .directory {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .directory-item {
-            padding: 10px;
-            border-bottom: 1px solid #e2e2e2;
-            transition: background 0.3s;
-        }
-        .directory-item:hover {
-            background: #e2e2e2;
-        }
-        .animation {
-            opacity: 0;
-            transform: translateY(-20px);
-            animation: fadeIn 1s forwards;
+            animation: fadeIn 1.5s;
         }
         @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
-        footer {
-            text-align: center;
+        .card {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
             padding: 20px;
-            background: #35424a;
-            color: #fff;
+            margin: 20px;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .emoji {
+            font-size: 50px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Our School Directory</h1>
-    </header>
-    <div class="container">
-        <div class="directory">
-            <h2>Directory List</h2>
-            <div class="directory-item animation">John Doe - Mathematics Teacher</div>
-            <div class="directory-item animation">Jane Smith - Science Teacher</div>
-            <div class="directory-item animation">Bob Brown - History Teacher</div>
-            <div class="directory-item animation">Alice Johnson - Art Teacher</div>
-        </div>
+
+    <h1>Welcome to the Fun Learning Zone! 🎉</h1>
+    <div class="card">
+        <h2>Explore Colors! 🎨</h2>
+        <p>Learn and play with different colors through cool activities!</p>
     </div>
-    <footer>
-        <p>Contact us at info@school.edu</p>
-    </footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const items = document.querySelectorAll('.directory-item');
-            items.forEach((item, index) => {
-                item.style.animationDelay = `${index * 0.1}s`;
-                item.classList.add('animation');
-            });
-        });
-    </script>
+    <div class="card">
+        <h2>Math Puzzles! 🧩</h2>
+        <p>Solve engaging math puzzles and earn your badges!</p>
+    </div>
+    <div class="card">
+        <h2>Science Experiments! 🔬</h2>
+        <p>Conduct fun science experiments with your friends!</p>
+    </div>
+
 </body>
 </html>
