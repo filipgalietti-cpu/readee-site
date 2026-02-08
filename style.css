@@ -265,3 +265,30 @@ section h2 {
     animation: none;
   }
 }
+/* READEE Process Tiles */
+#readee-process h2 {
+  margin-bottom: 22px;
+}
+
+.process-card {
+  position: relative;
+  border-top-color: var(--accent-sky);
+}
+
+.step-badge {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 0.9em;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--bg-lavender);
+  color: var(--primary-dark);
+  margin-bottom: 10px;
+}
+
+.result-line {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  color: var(--text-medium);
+}
