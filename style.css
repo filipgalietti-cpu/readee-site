@@ -1,35 +1,14 @@
-.bg-light-gray {
-  background-color: #F8FAFC;
+:root {
+  --primary-blue: #6366F1;
+  --accent-green: #22C55E;
+  --accent-orange: #F59E0B;
+  --accent-coral: #FB7185;
+  --text-dark: #0F172A;
+  --text-medium: #334155;
+  --text-light: #64748B;
+  --bg-white: #FFFFFF;
+  --bg-light: #F8FAFC;
+  --bg-lighter: #EFF6FF;
 }
 
-.bg-soft-blue {
-  background-color: #EFF6FF;
-}
-
-.bg-white {
-  background-color: #FFFFFF;
-}
-
-.text-primary {
-  color: #0F172A;
-}
-
-.text-body {
-  color: #334155;
-}
-
-.text-muted {
-  color: #64748B;
-}
-
-.accent-green {
-  color: #22C55E;
-}
-
-.accent-yellow {
-  color: #F59E0B;
-}
-
-.accent-coral {
-  color: #FB7185;
-}
+/* Keep all other CSS rules the same */
