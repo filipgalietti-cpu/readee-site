@@ -14,10 +14,10 @@
 
 .login-container {
     width: 100%;
-    max-width: 1100px;
+    max-width: 1200px;
     display: flex;
     flex-direction: row;
-    min-height: 600px;
+    min-height: 650px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
     border-radius: 16px;
     overflow: hidden;
@@ -25,9 +25,9 @@
 
 /* Left Promo Panel */
 .login-promo-panel {
-    flex: 1;
+    flex: 0 0 45%;
     background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
-    padding: 60px 50px;
+    padding: 70px 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -36,33 +36,33 @@
 }
 
 .promo-content {
-    max-width: 480px;
+    max-width: 100%;
 }
 
 .promo-logo-link {
     display: inline-block;
-    margin-bottom: 40px;
+    margin-bottom: 48px;
 }
 
 .promo-logo {
-    height: 80px;
+    height: 85px;
     width: auto;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
 }
 
 .promo-headline {
-    font-size: 2em;
+    font-size: 2.2em;
     font-weight: 700;
     line-height: 1.3;
-    margin: 0 0 24px 0;
+    margin: 0 0 28px 0;
     color: white;
 }
 
 .promo-description {
-    font-size: 1.1em;
-    line-height: 1.6;
-    margin: 0 0 32px 0;
-    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.15em;
+    line-height: 1.7;
+    margin: 0 0 36px 0;
+    color: rgba(255, 255, 255, 0.95);
 }
 
 .promo-link {
@@ -86,39 +86,38 @@
 .login-box {
     flex: 1;
     background: white;
-    padding: 60px 50px;
+    padding: 70px 70px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
     overflow-y: auto;
 }
 
 .login-header {
     text-align: center;
-    margin-bottom: 32px;
+    margin-bottom: 40px;
 }
 
 .login-header h1 {
-    font-size: 1.75em;
+    font-size: 2em;
     color: #1E293B;
-    margin: 0 0 8px 0;
+    margin: 0 0 10px 0;
     font-weight: 700;
 }
 
 .login-subtitle {
     color: #64748B;
-    font-size: 1em;
+    font-size: 1.05em;
     margin: 0;
     font-weight: 400;
 }
 
 .login-form {
-    margin-bottom: 24px;
+    margin-bottom: 28px;
 }
 
 .form-group-login {
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
 .form-group-login label {
