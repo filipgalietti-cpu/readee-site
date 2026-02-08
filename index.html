@@ -3,39 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fillysteeze</title>
+    <title>Filly Steeze</title>
     <style>
-        body { font-family: Arial, sans-serif; background-color: #f0f0f0; color: #333; }
-        .container { max-width: 800px; margin: auto; padding: 20px; }
-        h1, h2 { color: #4CAF50; }
-        .section { background-color: #fff; padding: 15px; margin: 10px 0; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .card { background-color: #DFF0D8; padding: 10px; border-radius: 5px; margin: 10px 0; }
-        .badge { background-color: #FFD700; color: #fff; padding: 5px 10px; border-radius: 3px; }
-        .success-stories { font-style: italic; }
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #5a67d8;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        #hero {
+            background: url('hero-image.jpg') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+        }
+        #hero h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+        #hero p {
+            font-size: 1.5em;
+        }
+        .card {
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        section {
+            padding: 20px;
+        }
+        footer {
+            background: #5a67d8;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to Fillysteeze</h1>
-        <div class="section" id="student-engagement">
-            <h2>Enhanced Student Engagement</h2>
-            <p>Explore our new features designed to boost student engagement:</p>
-            <div class="card">Progress Tracking: Students can now track their progress through visual charts and personal dashboards.</div>
-            <div class="card">Achievement Badges: Earn badges for completing tasks and reaching milestones!</div>
-            <div class="card">Interactive Activities: Participate in fun activities that encourage learning and teamwork.</div>
-        </div>
-        <div class="section" id="parent-engagement">
-            <h2>Parent Engagement</h2>
-            <p>Stay connected with your child’s progress:</p>
-            <div class="card">Parent Communication: Get updates and communicate with teachers through our dedicated platform.</div>
-            <div class="card">Visual Engagement: Colorful cards provide an overview of your child's achievements and daily activities.</div>
-        </div>
-        <div class="section success-stories" id="student-success-stories">
-            <h2>Student Success Stories</h2>
-            <p>Read inspiring success stories from students:</p>
-            <div class="card">"I earned my first achievement badge this week!" - Jane Doe</div>
-            <div class="card">"The progress tracking helped me improve my grades significantly!" - John Smith</div>
-        </div>
+    <header>
+        <h1>Welcome to Filly Steeze</h1>
+    </header>
+    <div id="hero">
+        <h1>Hero Section</h1>
+        <p>Brief Description of the Service</p>
     </div>
+    <section id="how-it-works">
+        <h2>How It Works</h2>
+        <div class="row">
+            <div class="card">
+                <h3>Step 1</h3>
+                <p>Description of step 1</p>
+            </div>
+            <div class="card">
+                <h3>Step 2</h3>
+                <p>Description of step 2</p>
+            </div>
+            <div class="card">
+                <h3>Step 3</h3>
+                <p>Description of step 3</p>
+            </div>
+        </div>
+    </section>
+    <section id="results">
+        <h2>Results</h2>
+        <div class="row">
+            <div class="card">
+                <h3>Result 1</h3>
+                <p>Description of result 1</p>
+            </div>
+            <div class="card">
+                <h3>Result 2</h3>
+                <p>Description of result 2</p>
+            </div>
+            <div class="card">
+                <h3>Result 3</h3>
+                <p>Description of result 3</p>
+            </div>
+        </div>
+    </section>
+    <section id="testimonials">
+        <h2>Testimonials</h2>
+        <div class="row">
+            <div class="card">
+                <p>"Testimonial 1"</p>
+                <p>- Person 1</p>
+            </div>
+            <div class="card">
+                <p>"Testimonial 2"</p>
+                <p>- Person 2</p>
+            </div>
+            <div class="card">
+                <p>"Testimonial 3"</p>
+                <p>- Person 3</p>
+            </div>
+        </div>
+    </section>
+    <section id="faq">
+        <h2>FAQ</h2>
+        <div class="row">
+            <div class="card">
+                <h3>Question 1?</h3>
+                <p>Answer to question 1.</p>
+            </div>
+            <div class="card">
+                <h3>Question 2?</h3>
+                <p>Answer to question 2.</p>
+            </div>
+            <div class="card">
+                <h3>Question 3?</h3>
+                <p>Answer to question 3.</p>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Contact information and form.</p>
+    </section>
+    <footer>
+        <p>Footer Content here</p>
+    </footer>
 </body>
 </html>
