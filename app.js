@@ -210,5 +210,43 @@ formInputs.forEach(input => {
     });
 });
 
+// ===== LOAD SCHOOL NAMES FROM CSV =====
+const schoolList = document.getElementById('school-list');
+
+if (schoolList) {
+    fetch('pa_public_prek_counts_locations_by_zip.csv')
+        .then(response => response.text())
+        .then(data => {
+            const lines = data.split('\n');
+            const schools = new Set();
+            
+            // Skip header row and extract location names (5th column)
+            for (let i = 1; i < lines.length; i++) {
+                const line = lines[i].trim();
+                if (line) {
+                    // Simple CSV parsing - split by comma
+                    const columns = line.split(',');
+                    if (columns.length >= 5) {
+                        const schoolName = columns[4].trim();
+                        if (schoolName) {
+                            schools.add(schoolName);
+                        }
+                    }
+                }
+            }
+            
+            // Sort schools alphabetically and add to datalist
+            const sortedSchools = Array.from(schools).sort();
+            sortedSchools.forEach(school => {
+                const option = document.createElement('option');
+                option.value = school;
+                schoolList.appendChild(option);
+            });
+        })
+        .catch(error => {
+            console.error('Error loading school names:', error);
+        });
+}
+
 // ===== INITIALIZE =====
 console.log('BrightSteps Learning Platform Loaded ✓');
