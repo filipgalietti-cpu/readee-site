@@ -322,6 +322,20 @@ section h2 {
   color: var(--text-medium);
 }
 
+/* About Section */
+#about {
+  background-color: var(--bg-lavender);
+  padding: 60px 20px;
+}
+
+#about h2 {
+  margin-bottom: 32px;
+}
+
+.about-card {
+  border-top-color: var(--primary);
+}
+
 #about h1 {
   margin-bottom: 20px;
 }
