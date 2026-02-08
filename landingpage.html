@@ -3,84 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>School Directory</title>
+    <title>School Directory Landing Page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
             margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #35424a;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .directory {
+            background: white;
             padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            border: 1px solid #ccc;
+        .directory-item {
             padding: 10px;
-            text-align: left;
+            border-bottom: 1px solid #e2e2e2;
+            transition: background 0.3s;
         }
-        th {
-            background-color: #f2f2f2;
+        .directory-item:hover {
+            background: #e2e2e2;
         }
-        .search {
-            margin-bottom: 20px;
+        .animation {
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeIn 1s forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #35424a;
+            color: #fff;
         }
     </style>
 </head>
 <body>
-    <h1>School Directory</h1>
-    <input type="text" id="search" class="search" placeholder="Search by name or type...">
-    <table id="directory">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Email</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Data will be populated here from CSV -->
-        </tbody>
-    </table>
+    <header>
+        <h1>Welcome to Our School Directory</h1>
+    </header>
+    <div class="container">
+        <div class="directory">
+            <h2>Directory List</h2>
+            <div class="directory-item animation">John Doe - Mathematics Teacher</div>
+            <div class="directory-item animation">Jane Smith - Science Teacher</div>
+            <div class="directory-item animation">Bob Brown - History Teacher</div>
+            <div class="directory-item animation">Alice Johnson - Art Teacher</div>
+        </div>
+    </div>
+    <footer>
+        <p>Contact us at info@school.edu</p>
+    </footer>
     <script>
-        // Load CSV data 
-        const loadCSV = async () => {
-            const response = await fetch('directory.csv');
-            const data = await response.text();
-            const rows = data.split('\n').slice(1);
-            const tableBody = document.querySelector('#directory tbody');
-            rows.forEach(row => {
-                const cols = row.split(',');
-                const tr = document.createElement('tr');
-                cols.forEach(col => {
-                    const td = document.createElement('td');
-                    td.innerText = col;
-                    tr.appendChild(td);
-                });
-                tableBody.appendChild(tr);
-            });
-        };
-
-        // Search filter
-        const searchInput = document.getElementById('search');
-        searchInput.addEventListener('keyup', function() {
-            const filter = searchInput.value.toLowerCase();
-            const rows = document.querySelectorAll('#directory tbody tr');
-            rows.forEach(row => {
-                const cells = row.getElementsByTagName('td');
-                let match = false;
-                for (let i = 0; i < cells.length; i++) {
-                    if (cells[i].innerText.toLowerCase().indexOf(filter) > -1) {
-                        match = true;
-                    }
-                }
-                row.style.display = match ? '' : 'none';
+        document.addEventListener('DOMContentLoaded', function() {
+            const items = document.querySelectorAll('.directory-item');
+            items.forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.1}s`;
+                item.classList.add('animation');
             });
         });
-
-        loadCSV();
     </script>
 </body>
 </html>
