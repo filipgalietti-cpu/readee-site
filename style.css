@@ -984,12 +984,16 @@ section h2 {
 .about-card-link {
   text-decoration: none;
   color: inherit;
-  display: block;
+  display: flex;
+  flex: 1;
+  min-width: 220px;
   transition: all 0.3s ease;
 }
 
 .about-card-link .about-card {
   cursor: pointer;
+  width: 100%;
+  margin: 12px;
 }
 
 .about-card-link:hover .about-card {
