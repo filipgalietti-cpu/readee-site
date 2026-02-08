@@ -159,10 +159,9 @@ if (intakeForm) {
             isValid = false;
         }
         
-        // If form is valid, show success message
+        // If form is valid, redirect to thank you page
         if (isValid) {
-            showSuccessMessage();
-            intakeForm.reset();
+            window.location.href = 'thankyou.html';
         }
     });
 }
