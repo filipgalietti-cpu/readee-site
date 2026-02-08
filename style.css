@@ -117,8 +117,8 @@ header {
   color: #10B981; /* Green */
 }
 
-/* Sparkle container */
-.logo-link::before {
+/* Sparkle container - only for PNG logos */
+.logo-link:has(.header-logo:not(.colorful-logo))::before {
   content: '';
   position: absolute;
   top: 0;
@@ -155,7 +155,7 @@ header {
   animation: logo-glow-text 1.5s ease-in-out infinite;
 }
 
-.logo-link:hover::before {
+.logo-link:has(.header-logo:not(.colorful-logo)):hover::before {
   opacity: 0.3;
   animation: sparkle-rotate 3s linear infinite;
   background: 
@@ -168,8 +168,8 @@ header {
   background-size: 12px 12px, 10px 10px, 11px 11px, 9px 9px, 10px 10px, 11px 11px;
 }
 
-/* Glitter shimmer effect */
-.logo-link:hover::after {
+/* Glitter shimmer effect - only for PNG logos */
+.logo-link:has(.header-logo:not(.colorful-logo)):hover::after {
   content: '';
   position: absolute;
   top: 0;
