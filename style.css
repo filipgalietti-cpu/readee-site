@@ -194,3 +194,74 @@ section h2 {
   color: var(--text-medium);
   text-align: center;
 }
+.logo-wrap{
+  display:inline-block;
+  position:relative;
+  border-radius:16px;
+  padding:10px;
+  outline: none;
+}
+
+.logo{
+  width:240px;
+  height:auto;
+  display:block;
+  transform-origin: 50% 80%;
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+/* Shine overlay */
+.logo-wrap::after{
+  content:"";
+  position:absolute;
+  inset:-6px;
+  border-radius:18px;
+  pointer-events:none;
+  opacity:0;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.55) 45%,
+    rgba(255,255,255,0) 70%
+  );
+  transform: translateX(-60%) rotate(8deg);
+}
+
+/* Hover / focus = dance + shine */
+.logo-wrap:hover .logo,
+.logo-wrap:focus-visible .logo{
+  animation: readee-dance 700ms ease-in-out infinite;
+  filter: drop-shadow(0 10px 18px rgba(37,99,235,0.22));
+}
+
+.logo-wrap:hover::after,
+.logo-wrap:focus-visible::after{
+  opacity:1;
+  animation: readee-shine 900ms ease-in-out infinite;
+}
+
+/* The “dance” */
+@keyframes readee-dance{
+  0%   { transform: translateY(0) rotate(0deg) scale(1); }
+  20%  { transform: translateY(-3px) rotate(-2deg) scale(1.02); }
+  40%  { transform: translateY(0) rotate(2deg) scale(1.02); }
+  60%  { transform: translateY(-2px) rotate(-1deg) scale(1.01); }
+  80%  { transform: translateY(0) rotate(1deg) scale(1.01); }
+  100% { transform: translateY(0) rotate(0deg) scale(1); }
+}
+
+/* The “shine sweep” */
+@keyframes readee-shine{
+  0%   { transform: translateX(-70%) rotate(8deg); }
+  100% { transform: translateX(70%) rotate(8deg); }
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce){
+  .logo-wrap:hover .logo,
+  .logo-wrap:focus-visible .logo,
+  .logo-wrap:hover::after,
+  .logo-wrap:focus-visible::after{
+    animation: none;
+  }
+}
