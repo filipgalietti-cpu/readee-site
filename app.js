@@ -1,7 +1,33 @@
-// ===== MOBILE MENU TOGGLE =====
+// ===== MENU TOGGLE =====
+const menuToggle = document.getElementById('menuToggle');
 const mobileMenuToggle = document.getElementById('mobileMenuToggle');
 const navMenu = document.getElementById('navMenu');
 
+if (menuToggle && navMenu) {
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+    
+    // Close menu when clicking on a link
+    const navLinks = navMenu.querySelectorAll('a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
+            menuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
+    });
+}
+
+// ===== MOBILE MENU TOGGLE =====
 if (mobileMenuToggle) {
     mobileMenuToggle.addEventListener('click', () => {
         navMenu.classList.toggle('active');
@@ -23,7 +49,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const target = document.querySelector(this.getAttribute('href'));
         
         if (target) {
-            const navbarHeight = document.querySelector('.navbar').offsetHeight;
+            const navbar = document.querySelector('.navbar') || document.querySelector('header');
+            const navbarHeight = navbar ? navbar.offsetHeight : 0;
             const targetPosition = target.offsetTop - navbarHeight;
             
             window.scrollTo({
