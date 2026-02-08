@@ -160,6 +160,7 @@ if (intakeForm) {
         }
         
         // If form is valid, redirect to thank you page
+        // Note: This is a static demo. In production, form data should be submitted to a backend before redirecting.
         if (isValid) {
             window.location.href = 'thankyou.html';
         }
