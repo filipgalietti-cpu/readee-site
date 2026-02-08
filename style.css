@@ -80,19 +80,21 @@ footer p {
 /* Hero */
 #hero {
   background: var(--primary-gradient);
-  min-height: 360px;
+  min-height: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   color: white;
-  padding: 40px 20px;
+  padding: 60px 20px;
   text-align: center;
 }
 
 #hero h1 {
-  font-size: 2.8em;
-  margin: 0 0 16px 0;
+  font-size: 3.2em;
+  margin: 0 0 12px 0;
+  font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
 #hero p {
@@ -100,6 +102,89 @@ footer p {
   max-width: 680px;
   line-height: 1.7;
   opacity: 0.92;
+}
+
+/* Hero tagline */
+.hero-tagline {
+  font-size: 1.4em !important;
+  margin: 0 0 50px 0 !important;
+  opacity: 0.95 !important;
+  font-weight: 500;
+  max-width: 800px !important;
+}
+
+/* Hero content grid */
+.hero-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Hero feature cards */
+.hero-feature {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 32px 24px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.hero-feature:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.hero-feature .feature-icon {
+  font-size: 3em;
+  margin-bottom: 16px;
+  line-height: 1;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.hero-feature h3 {
+  font-size: 1.4em;
+  margin: 0 0 12px 0;
+  font-weight: 600;
+  color: white;
+}
+
+.hero-feature p {
+  font-size: 1em !important;
+  line-height: 1.6 !important;
+  margin: 0 !important;
+  opacity: 0.95 !important;
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  #hero h1 {
+    font-size: 2.4em;
+  }
+  
+  .hero-tagline {
+    font-size: 1.2em !important;
+    margin-bottom: 35px !important;
+  }
+  
+  .hero-feature {
+    padding: 28px 20px;
+  }
+  
+  .hero-feature .feature-icon {
+    font-size: 2.5em;
+  }
 }
 
 /* Sections */
