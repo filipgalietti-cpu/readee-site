@@ -402,12 +402,12 @@ section h2 {
 }
 /* READEE Process Tiles */
 #readee-process {
-  background: var(--primary-gradient);
+  background: var(--bg-lavender);
   padding: 60px 20px 80px 20px;
 }
 
 #readee-process h2 {
-  color: white;
+  color: var(--primary-dark);
   margin-bottom: 40px;
 }
 
