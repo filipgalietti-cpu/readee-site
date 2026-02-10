@@ -191,6 +191,7 @@ function showSuccessMessage() {
 
 function showIntakeSuccessMessage() {
     const submitButton = document.querySelector('.submit-button');
+    if (!submitButton) return;
     
     submitButton.textContent = '✓ Your responses were saved';
     submitButton.style.background = getComputedStyle(document.documentElement).getPropertyValue('--success').trim();
