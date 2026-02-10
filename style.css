@@ -74,13 +74,18 @@ header {
   position: relative;
   overflow: hidden;
   line-height: 0;
+  padding: 4px 12px 4px 0;
 }
 
 .header-logo {
-  height: 150px;
+  max-height: 52px;
   width: auto;
+  height: auto;
   display: block;
+  margin: 8px 0;
   transition: transform 0.3s ease, filter 0.3s ease;
+  background: transparent;
+  object-fit: contain;
 }
 
 /* Sparkle container */
@@ -203,6 +208,29 @@ header {
   }
   .logo-link:hover .header-logo {
     transform: none;
+  }
+}
+
+/* Mobile responsive logo sizing */
+@media (max-width: 768px) {
+  .header-logo {
+    max-height: 40px;
+    margin: 6px 0;
+  }
+  
+  .celebration-logo {
+    max-width: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-logo {
+    max-height: 36px;
+    margin: 4px 0;
+  }
+  
+  .celebration-logo {
+    max-width: 120px;
   }
 }
 
@@ -796,10 +824,13 @@ section h2 {
 }
 
 .celebration-logo {
-  width: 150px;
+  max-width: 180px;
+  width: 100%;
   height: auto;
   animation: logo-dance 1s ease-in-out infinite, logo-pop 0.6s ease-out;
   filter: drop-shadow(0 10px 30px rgba(255, 255, 255, 0.3));
+  background: transparent;
+  object-fit: contain;
 }
 
 @keyframes logo-pop {
