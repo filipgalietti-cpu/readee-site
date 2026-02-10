@@ -77,6 +77,12 @@ header {
   line-height: 0;
 }
 
+.logo-link:focus {
+  outline: 3px solid white;
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
 .header-logo {
   height: 150px;
   width: auto;
@@ -230,6 +236,15 @@ header {
   border-color: rgba(255, 255, 255, 0.6);
 }
 
+.menu-toggle:focus {
+  outline: 3px solid white;
+  outline-offset: 2px;
+}
+
+.menu-toggle:active {
+  background: rgba(255, 255, 255, 0.4);
+}
+
 .menu-text {
   font-family: var(--font-family-system);
 }
@@ -292,6 +307,12 @@ header {
 
 .nav-menu a:hover {
   background: rgba(255, 255, 255, 0.15);
+}
+
+.nav-menu a:focus {
+  outline: 3px solid white;
+  outline-offset: -3px;
+  background: rgba(255, 255, 255, 0.2);
 }
 
 header h1 {
@@ -487,6 +508,15 @@ footer p {
   background-color: var(--bg-page);
 }
 
+.get-started-button:focus {
+  outline: 3px solid var(--primary-dark);
+  outline-offset: 3px;
+}
+
+.get-started-button:active {
+  transform: translateY(0);
+}
+
 /* Sections */
 section {
   padding: 60px 20px;
@@ -569,6 +599,11 @@ section h2 {
   color: var(--text-medium);
   line-height: 1.7;
   max-width: 65ch;
+}
+
+/* Add spacing between consecutive paragraphs in cards */
+.card p + p {
+  margin-top: 16px;
 }
 
 /* Contact section */
@@ -780,6 +815,9 @@ section h2 {
 .button-container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
   text-align: center;
   margin-top: 48px;
 }
@@ -857,6 +895,7 @@ section h2 {
 .form-group textarea:focus {
   outline: none;
   border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
 }
 
 .form-group input:disabled {
@@ -895,6 +934,15 @@ section h2 {
 .submit-button:hover:not(:disabled) {
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
+}
+
+.submit-button:focus {
+  outline: 3px solid var(--primary-dark);
+  outline-offset: 3px;
+}
+
+.submit-button:active:not(:disabled) {
+  transform: translateY(0);
 }
 
 .submit-button:disabled {
@@ -1035,6 +1083,13 @@ section h2 {
   background: var(--bg-page);
 }
 
+.home-button:focus {
+  outline: 3px solid white;
+  outline-offset: 3px;
+}
+
+.home-button:active {
+  transform: translateY(0);
 /* What Happens Next Section */
 #what-happens-next {
   background: var(--bg-white);
@@ -1213,16 +1268,22 @@ section h2 {
   margin-bottom: 16px;
 }
 
+/* Add extra spacing between paragraphs for better readability */
+.info-card p + p {
+  margin-top: 16px;
+}
+
 .info-card ul {
   color: var(--text-medium);
   line-height: 1.7;
   max-width: 75ch;
   margin-left: 20px;
+}
   margin-bottom: 16px;
 }
 
 .info-card li {
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .info-card strong {
@@ -1271,6 +1332,16 @@ section h2 {
 
 .about-card-link:hover .about-card {
   transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(79, 70, 229, 0.3);
+}
+
+.about-card-link:focus {
+  outline: 3px solid var(--primary-dark);
+  outline-offset: 4px;
+  border-radius: 16px;
+}
+
+.about-card-link:focus .about-card {
   box-shadow: 0 16px 48px rgba(79, 70, 229, 0.3);
 }
 
