@@ -39,7 +39,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  font-size: 18px;
+  font-size: 1.125rem; /* 18px when browser default is 16px */
   color: var(--text-dark);
   background-color: var(--bg-page);
   margin: 0;
