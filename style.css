@@ -376,7 +376,8 @@ footer p {
   background: radial-gradient(circle, rgba(168, 85, 247, 0.8) 0%, rgba(124, 58, 237, 0.4) 50%, transparent 100%);
   top: 10%;
   left: 10%;
-  animation: float-1 8s;
+  animation-name: float-1;
+  animation-duration: 8s;
 }
 
 .blob-2 {
@@ -385,7 +386,8 @@ footer p {
   background: radial-gradient(circle, rgba(147, 51, 234, 0.7) 0%, rgba(109, 40, 217, 0.3) 50%, transparent 100%);
   top: 50%;
   left: 70%;
-  animation: float-2 10s;
+  animation-name: float-2;
+  animation-duration: 10s;
 }
 
 .blob-3 {
@@ -394,7 +396,8 @@ footer p {
   background: radial-gradient(circle, rgba(126, 34, 206, 0.6) 0%, rgba(107, 33, 168, 0.3) 50%, transparent 100%);
   top: 60%;
   left: 20%;
-  animation: float-3 12s;
+  animation-name: float-3;
+  animation-duration: 12s;
 }
 
 .blob-4 {
@@ -403,7 +406,8 @@ footer p {
   background: radial-gradient(circle, rgba(139, 92, 246, 0.7) 0%, rgba(124, 58, 237, 0.4) 50%, transparent 100%);
   top: 20%;
   left: 50%;
-  animation: float-4 9s;
+  animation-name: float-4;
+  animation-duration: 9s;
 }
 
 @keyframes float-1 {
