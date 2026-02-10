@@ -215,7 +215,7 @@ header {
 @media (max-width: 768px) {
   .header-logo {
     max-height: 40px;
-    margin: 6px 0;
+    margin: 4px 0;
   }
   
   .celebration-logo {
@@ -226,7 +226,7 @@ header {
 @media (max-width: 480px) {
   .header-logo {
     max-height: 36px;
-    margin: 4px 0;
+    margin: 2px 0;
   }
   
   .celebration-logo {
