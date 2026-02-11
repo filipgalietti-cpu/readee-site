@@ -40,26 +40,21 @@ export default [
       "no-debugger": "warn",
       "no-alert": "warn",
       "no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
-      
+
       // Best practices
-      "eqeqeq": ["error", "always"],
+      eqeqeq: ["error", "always"],
       "no-var": "error",
       "prefer-const": "warn",
       "no-undef": "error",
-      
+
       // Stylistic
-      "semi": ["error", "always"],
-      "quotes": ["warn", "double", { avoidEscape: true }],
-      "indent": ["warn", 2],
+      semi: ["error", "always"],
+      quotes: ["warn", "double", { avoidEscape: true }],
+      indent: ["warn", 2],
       "comma-dangle": ["warn", "only-multiline"],
     },
   },
   {
-    ignores: [
-      "node_modules/",
-      "dist/",
-      "build/",
-      "*.min.js",
-    ],
+    ignores: ["node_modules/", "dist/", "build/", "*.min.js"],
   },
 ];

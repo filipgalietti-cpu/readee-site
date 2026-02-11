@@ -1,465 +1,485 @@
 // ===== MENU TOGGLE =====
-const menuToggle = document.getElementById('menuToggle');
-const navMenu = document.getElementById('navMenu');
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
 
 if (menuToggle && navMenu) {
-    menuToggle.addEventListener('click', (e) => {
-        e.stopPropagation();
-        menuToggle.classList.toggle('active');
-        navMenu.classList.toggle('active');
+  menuToggle.addEventListener("click", e => {
+    e.stopPropagation();
+    menuToggle.classList.toggle("active");
+    navMenu.classList.toggle("active");
+  });
+
+  // Close menu when clicking on a link
+  const menuNavLinks = navMenu.querySelectorAll("a");
+  menuNavLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      menuToggle.classList.remove("active");
+      navMenu.classList.remove("active");
     });
-    
-    // Close menu when clicking on a link
-    const menuNavLinks = navMenu.querySelectorAll('a');
-    menuNavLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            menuToggle.classList.remove('active');
-            navMenu.classList.remove('active');
-        });
-    });
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
-            menuToggle.classList.remove('active');
-            navMenu.classList.remove('active');
-        }
-    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener("click", e => {
+    if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
+      menuToggle.classList.remove("active");
+      navMenu.classList.remove("active");
+    }
+  });
 }
 
 // ===== DESKTOP DROPDOWN NAVIGATION =====
 // Prevent default behavior on dropdown toggle links
-const dropdowns = document.querySelectorAll('.desktop-nav .dropdown');
+const dropdowns = document.querySelectorAll(".desktop-nav .dropdown");
 
 dropdowns.forEach(dropdown => {
-    const toggleLink = dropdown.querySelector('.nav-link');
-    if (toggleLink) {
-        toggleLink.addEventListener('click', (e) => {
-            e.preventDefault();
-        });
-    }
+  const toggleLink = dropdown.querySelector(".nav-link");
+  if (toggleLink) {
+    toggleLink.addEventListener("click", e => {
+      e.preventDefault();
+    });
+  }
 });
 
 // ===== SMOOTH SCROLLING =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        
-        if (target) {
-            const navbar = document.querySelector('.navbar') || document.querySelector('header');
-            const navbarHeight = navbar ? navbar.offsetHeight : 0;
-            const targetPosition = target.offsetTop - navbarHeight;
-            
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
-        }
-    });
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute("href"));
+
+    if (target) {
+      const navbar = document.querySelector(".navbar") || document.querySelector("header");
+      const navbarHeight = navbar ? navbar.offsetHeight : 0;
+      const targetPosition = target.offsetTop - navbarHeight;
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth",
+      });
+    }
+  });
 });
 
 // ===== NAVBAR SCROLL EFFECT =====
-const navbar = document.querySelector('.navbar');
+const navbar = document.querySelector(".navbar");
 
 if (navbar) {
-    let lastScroll = 0;
-    
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 100) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-        
-        lastScroll = currentScroll;
-    });
+  let lastScroll = 0;
+
+  window.addEventListener("scroll", () => {
+    const currentScroll = window.pageYOffset;
+
+    if (currentScroll > 100) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
+
+    lastScroll = currentScroll;
+  });
 }
 
 // ===== FAQ ACCORDION =====
-const faqItems = document.querySelectorAll('.faq-item');
+const faqItems = document.querySelectorAll(".faq-item");
 
 faqItems.forEach(item => {
-    const question = item.querySelector('.faq-question');
-    
-    question.addEventListener('click', () => {
-        // Close other open items
-        faqItems.forEach(otherItem => {
-            if (otherItem !== item && otherItem.classList.contains('active')) {
-                otherItem.classList.remove('active');
-            }
-        });
-        
-        // Toggle current item
-        item.classList.toggle('active');
+  const question = item.querySelector(".faq-question");
+
+  question.addEventListener("click", () => {
+    // Close other open items
+    faqItems.forEach(otherItem => {
+      if (otherItem !== item && otherItem.classList.contains("active")) {
+        otherItem.classList.remove("active");
+      }
     });
+
+    // Toggle current item
+    item.classList.toggle("active");
+  });
 });
 
 // ===== FORM VALIDATION =====
-const contactForm = document.getElementById('contactForm');
-const intakeForm = document.getElementById('intakeForm');
+const contactForm = document.getElementById("contactForm");
+const intakeForm = document.getElementById("intakeForm");
 
 if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Clear previous errors
-        const errorMessages = document.querySelectorAll('.error-message');
-        errorMessages.forEach(msg => msg.textContent = '');
-        
-        let isValid = true;
-        
-        // Validate name
-        const name = document.getElementById('name');
-        if (name.value.trim().length < 2) {
-            showError(name, 'Please enter your full name');
-            isValid = false;
-        }
-        
-        // Validate email
-        const email = document.getElementById('email');
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email.value.trim())) {
-            showError(email, 'Please enter a valid email address');
-            isValid = false;
-        }
-        
-        // Validate role
-        const role = document.getElementById('role');
-        if (role.value === '') {
-            showError(role, 'Please select your role');
-            isValid = false;
-        }
-        
-        // If form is valid, show success message
-        if (isValid) {
-            showSuccessMessage();
-            contactForm.reset();
-        }
-    });
+  contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Clear previous errors
+    const errorMessages = document.querySelectorAll(".error-message");
+    errorMessages.forEach(msg => (msg.textContent = ""));
+
+    let isValid = true;
+
+    // Validate name
+    const name = document.getElementById("name");
+    if (name.value.trim().length < 2) {
+      showError(name, "Please enter your full name");
+      isValid = false;
+    }
+
+    // Validate email
+    const email = document.getElementById("email");
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.value.trim())) {
+      showError(email, "Please enter a valid email address");
+      isValid = false;
+    }
+
+    // Validate role
+    const role = document.getElementById("role");
+    if (role.value === "") {
+      showError(role, "Please select your role");
+      isValid = false;
+    }
+
+    // If form is valid, show success message
+    if (isValid) {
+      showSuccessMessage();
+      contactForm.reset();
+    }
+  });
 }
 
 if (intakeForm) {
-    intakeForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Clear previous errors
-        const errorMessages = document.querySelectorAll('.error-message');
-        errorMessages.forEach(msg => msg.textContent = '');
-        
-        let isValid = true;
-        
-        // Validate name
-        const name = document.getElementById('name');
-        if (name.value.trim().length < 2) {
-            showError(name, 'Please enter your full name');
-            isValid = false;
-        }
-        
-        // Validate email
-        const email = document.getElementById('email');
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email.value.trim())) {
-            showError(email, 'Please enter a valid email address');
-            isValid = false;
-        }
-        
-        // Validate role
-        const role = document.getElementById('role');
-        if (role.value === '') {
-            showError(role, 'Please select your role');
-            isValid = false;
-        }
-        
-        // If form is valid, show success message and redirect to thank you page
-        // Note: This is a static demo. In production, form data should be submitted to a backend before redirecting.
-        if (isValid) {
-            showIntakeSuccessMessage();
-        }
-    });
+  intakeForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Clear previous errors
+    const errorMessages = document.querySelectorAll(".error-message");
+    errorMessages.forEach(msg => (msg.textContent = ""));
+
+    let isValid = true;
+
+    // Validate name
+    const name = document.getElementById("name");
+    if (name.value.trim().length < 2) {
+      showError(name, "Please enter your full name");
+      isValid = false;
+    }
+
+    // Validate email
+    const email = document.getElementById("email");
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.value.trim())) {
+      showError(email, "Please enter a valid email address");
+      isValid = false;
+    }
+
+    // Validate role
+    const role = document.getElementById("role");
+    if (role.value === "") {
+      showError(role, "Please select your role");
+      isValid = false;
+    }
+
+    // If form is valid, show success message and redirect to thank you page
+    // Note: This is a static demo. In production, form data should be submitted to a backend before redirecting.
+    if (isValid) {
+      showIntakeSuccessMessage();
+    }
+  });
 }
 
 function showError(input, message) {
-    const formGroup = input.closest('.form-group');
-    const errorMessage = formGroup.querySelector('.error-message');
-    errorMessage.textContent = message;
-    input.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--error').trim();
+  const formGroup = input.closest(".form-group");
+  const errorMessage = formGroup.querySelector(".error-message");
+  errorMessage.textContent = message;
+  input.style.borderColor = getComputedStyle(document.documentElement)
+    .getPropertyValue("--error")
+    .trim();
 }
 
 function showSuccessMessage() {
-    const submitButton = document.querySelector('.submit-button');
-    const originalText = submitButton.textContent;
-    
-    submitButton.textContent = '✓ Message Sent! We\'ll be in touch soon.';
-    submitButton.style.background = getComputedStyle(document.documentElement).getPropertyValue('--success').trim();
-    submitButton.disabled = true;
-    
-    setTimeout(() => {
-        submitButton.textContent = originalText;
-        submitButton.style.background = '';
-        submitButton.disabled = false;
-    }, 3000);
+  const submitButton = document.querySelector(".submit-button");
+  const originalText = submitButton.textContent;
+
+  submitButton.textContent = "✓ Message Sent! We'll be in touch soon.";
+  submitButton.style.background = getComputedStyle(document.documentElement)
+    .getPropertyValue("--success")
+    .trim();
+  submitButton.disabled = true;
+
+  setTimeout(() => {
+    submitButton.textContent = originalText;
+    submitButton.style.background = "";
+    submitButton.disabled = false;
+  }, 3000);
 }
 
 function showIntakeSuccessMessage() {
-    const submitButton = document.querySelector('.submit-button');
-    if (!submitButton) return;
-    
-    submitButton.textContent = '✓ Your responses were saved';
-    submitButton.style.background = getComputedStyle(document.documentElement).getPropertyValue('--success').trim();
-    submitButton.disabled = true;
-    
-    // Redirect to thank you page after showing success message
-    setTimeout(() => {
-        window.location.href = 'thankyou.html';
-    }, 1500);
+  const submitButton = document.querySelector(".submit-button");
+  if (!submitButton) return;
+
+  submitButton.textContent = "✓ Your responses were saved";
+  submitButton.style.background = getComputedStyle(document.documentElement)
+    .getPropertyValue("--success")
+    .trim();
+  submitButton.disabled = true;
+
+  // Redirect to thank you page after showing success message
+  setTimeout(() => {
+    window.location.href = "thankyou.html";
+  }, 1500);
 }
 
 // ===== SCROLL ANIMATIONS =====
 const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
+  threshold: 0.1,
+  rootMargin: "0px 0px -100px 0px",
 };
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = "1";
+      entry.target.style.transform = "translateY(0)";
+    }
+  });
 }, observerOptions);
 
 // Observe elements for scroll animations
-const animateElements = document.querySelectorAll('.solution-card, .step, .stat-card, .testimonial-card');
+const animateElements = document.querySelectorAll(
+  ".solution-card, .step, .stat-card, .testimonial-card"
+);
 animateElements.forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
+  el.style.opacity = "0";
+  el.style.transform = "translateY(30px)";
+  el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+  observer.observe(el);
 });
 
 // ===== CLEAR INPUT BORDER COLOR ON FOCUS =====
-const formInputs = document.querySelectorAll('input, select, textarea');
+const formInputs = document.querySelectorAll("input, select, textarea");
 formInputs.forEach(input => {
-    input.addEventListener('focus', () => {
-        input.style.borderColor = '';
-    });
+  input.addEventListener("focus", () => {
+    input.style.borderColor = "";
+  });
 });
 
 // ===== CONDITIONAL NUMBER OF STUDENTS FIELD =====
-const roleSelect = document.getElementById('role');
-const studentsInput = document.getElementById('students');
-const learningDisabilitiesGroup = document.getElementById('learning-disabilities-group');
+const roleSelect = document.getElementById("role");
+const studentsInput = document.getElementById("students");
+const learningDisabilitiesGroup = document.getElementById("learning-disabilities-group");
 
 if (roleSelect && studentsInput) {
-    roleSelect.addEventListener('change', function() {
-        if (this.value === 'teacher') {
-            // Enable the number of students field for teachers/administrators
-            studentsInput.disabled = false;
-            studentsInput.required = true;
-            studentsInput.parentElement.querySelector('label').textContent = 'Number of Students *';
-            
-            // Show learning disabilities question
-            if (learningDisabilitiesGroup) {
-                learningDisabilitiesGroup.style.display = 'block';
-                learningDisabilitiesGroup.querySelector('label').textContent = 'Does your classroom have children with learning disabilities or special needs?';
-            }
-        } else if (this.value === 'parent') {
-            // Disable number of students for parents
-            studentsInput.disabled = true;
-            studentsInput.required = false;
-            studentsInput.value = '';
-            studentsInput.parentElement.querySelector('label').textContent = 'Number of Students';
-            
-            // Show learning disabilities question for parents
-            if (learningDisabilitiesGroup) {
-                learningDisabilitiesGroup.style.display = 'block';
-                learningDisabilitiesGroup.querySelector('label').textContent = 'Does your child have a learning disability or special needs?';
-            }
-        } else {
-            // Disable and clear for other roles
-            studentsInput.disabled = true;
-            studentsInput.required = false;
-            studentsInput.value = '';
-            studentsInput.parentElement.querySelector('label').textContent = 'Number of Students';
-            
-            // Hide learning disabilities question
-            if (learningDisabilitiesGroup) {
-                learningDisabilitiesGroup.style.display = 'none';
-            }
-        }
-    });
+  roleSelect.addEventListener("change", function () {
+    if (this.value === "teacher") {
+      // Enable the number of students field for teachers/administrators
+      studentsInput.disabled = false;
+      studentsInput.required = true;
+      studentsInput.parentElement.querySelector("label").textContent = "Number of Students *";
+
+      // Show learning disabilities question
+      if (learningDisabilitiesGroup) {
+        learningDisabilitiesGroup.style.display = "block";
+        learningDisabilitiesGroup.querySelector("label").textContent =
+          "Does your classroom have children with learning disabilities or special needs?";
+      }
+    } else if (this.value === "parent") {
+      // Disable number of students for parents
+      studentsInput.disabled = true;
+      studentsInput.required = false;
+      studentsInput.value = "";
+      studentsInput.parentElement.querySelector("label").textContent = "Number of Students";
+
+      // Show learning disabilities question for parents
+      if (learningDisabilitiesGroup) {
+        learningDisabilitiesGroup.style.display = "block";
+        learningDisabilitiesGroup.querySelector("label").textContent =
+          "Does your child have a learning disability or special needs?";
+      }
+    } else {
+      // Disable and clear for other roles
+      studentsInput.disabled = true;
+      studentsInput.required = false;
+      studentsInput.value = "";
+      studentsInput.parentElement.querySelector("label").textContent = "Number of Students";
+
+      // Hide learning disabilities question
+      if (learningDisabilitiesGroup) {
+        learningDisabilitiesGroup.style.display = "none";
+      }
+    }
+  });
 }
 
 // ===== LOAD SCHOOL NAMES FROM CSV =====
-const schoolList = document.getElementById('school-list');
+const schoolList = document.getElementById("school-list");
 
 if (schoolList) {
-    fetch('pa_public_prek_counts_locations_by_zip.csv')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Failed to load school data');
+  fetch("pa_public_prek_counts_locations_by_zip.csv")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Failed to load school data");
+      }
+      return response.text();
+    })
+    .then(data => {
+      const lines = data.split("\n");
+      const schools = new Set();
+
+      // CSV Structure: Program,county,lead_agency,partner_name,location_name,street_address,city,zip_code
+      // We're extracting the location_name field (index 4)
+
+      // Skip header row and extract location names (5th column, index 4)
+      for (let i = 1; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (line) {
+          // Parse CSV with basic quoted field handling
+          const columns = parseCSVLine(line);
+          if (columns.length >= 5) {
+            const schoolName = columns[4].trim();
+            // Filter out empty values and quoted remnants
+            if (schoolName && schoolName !== '""') {
+              schools.add(schoolName);
             }
-            return response.text();
-        })
-        .then(data => {
-            const lines = data.split('\n');
-            const schools = new Set();
-            
-            // CSV Structure: Program,county,lead_agency,partner_name,location_name,street_address,city,zip_code
-            // We're extracting the location_name field (index 4)
-            
-            // Skip header row and extract location names (5th column, index 4)
-            for (let i = 1; i < lines.length; i++) {
-                const line = lines[i].trim();
-                if (line) {
-                    // Parse CSV with basic quoted field handling
-                    const columns = parseCSVLine(line);
-                    if (columns.length >= 5) {
-                        const schoolName = columns[4].trim();
-                        // Filter out empty values and quoted remnants
-                        if (schoolName && schoolName !== '""') {
-                            schools.add(schoolName);
-                        }
-                    }
-                }
-            }
-            
-            // Sort schools alphabetically and add to datalist
-            const sortedSchools = Array.from(schools).sort();
-            sortedSchools.forEach(school => {
-                const option = document.createElement('option');
-                option.value = school;
-                schoolList.appendChild(option);
-            });
-            
-            console.log(`Loaded ${schools.size} schools from CSV`);
-        })
-        .catch(error => {
-            console.error('Error loading school names:', error);
-            // Provide fallback message to user
-            const schoolInput = document.getElementById('school');
-            if (schoolInput) {
-                schoolInput.placeholder = 'Type your school name (autocomplete unavailable)';
-            }
-        });
+          }
+        }
+      }
+
+      // Sort schools alphabetically and add to datalist
+      const sortedSchools = Array.from(schools).sort();
+      sortedSchools.forEach(school => {
+        const option = document.createElement("option");
+        option.value = school;
+        schoolList.appendChild(option);
+      });
+
+      console.log(`Loaded ${schools.size} schools from CSV`);
+    })
+    .catch(error => {
+      console.error("Error loading school names:", error);
+      // Provide fallback message to user
+      const schoolInput = document.getElementById("school");
+      if (schoolInput) {
+        schoolInput.placeholder = "Type your school name (autocomplete unavailable)";
+      }
+    });
 }
 
 // Simple CSV parser that handles quoted fields
 function parseCSVLine(line) {
-    const result = [];
-    let current = '';
-    let inQuotes = false;
-    
-    for (let i = 0; i < line.length; i++) {
-        const char = line[i];
-        
-        if (char === '"') {
-            inQuotes = !inQuotes;
-        } else if (char === ',' && !inQuotes) {
-            result.push(current);
-            current = '';
-        } else {
-            current += char;
-        }
+  const result = [];
+  let current = "";
+  let inQuotes = false;
+
+  for (let i = 0; i < line.length; i++) {
+    const char = line[i];
+
+    if (char === '"') {
+      inQuotes = !inQuotes;
+    } else if (char === "," && !inQuotes) {
+      result.push(current);
+      current = "";
+    } else {
+      current += char;
     }
-    
-    result.push(current);
-    return result;
+  }
+
+  result.push(current);
+  return result;
 }
 
 // ===== INITIALIZE =====
-console.log('BrightSteps Learning Platform Loaded ✓');
+console.log("BrightSteps Learning Platform Loaded ✓");
 
 // ===== CONFETTI EFFECT FOR THANK YOU PAGE =====
-const confettiCanvas = document.getElementById('confetti-canvas');
+const confettiCanvas = document.getElementById("confetti-canvas");
 
 if (confettiCanvas) {
-    const ctx = confettiCanvas.getContext('2d');
-    
-    // Set canvas size
-    function resizeCanvas() {
-        confettiCanvas.width = window.innerWidth;
-        confettiCanvas.height = window.innerHeight;
+  const ctx = confettiCanvas.getContext("2d");
+
+  // Set canvas size
+  function resizeCanvas() {
+    confettiCanvas.width = window.innerWidth;
+    confettiCanvas.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener("resize", resizeCanvas);
+
+  // Confetti particles
+  const confettiParticles = [];
+  const confettiColors = [
+    "#4F46E5",
+    "#7C3AED",
+    "#0D9488",
+    "#D97706",
+    "#E11D48",
+    "#0284C7",
+    "#FFD700",
+    "#FF69B4",
+    "#00CED1",
+  ];
+
+  class Confetti {
+    constructor() {
+      this.x = Math.random() * confettiCanvas.width;
+      this.y = Math.random() * confettiCanvas.height - confettiCanvas.height;
+      this.size = Math.random() * 8 + 5;
+      this.speedY = Math.random() * 3 + 2;
+      this.speedX = Math.random() * 2 - 1;
+      this.color = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+      this.rotation = Math.random() * 360;
+      this.rotationSpeed = Math.random() * 10 - 5;
+      this.shape = Math.random() > 0.5 ? "circle" : "square";
     }
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-    
-    // Confetti particles
-    const confettiParticles = [];
-    const confettiColors = ['#4F46E5', '#7C3AED', '#0D9488', '#D97706', '#E11D48', '#0284C7', '#FFD700', '#FF69B4', '#00CED1'];
-    
-    class Confetti {
-        constructor() {
-            this.x = Math.random() * confettiCanvas.width;
-            this.y = Math.random() * confettiCanvas.height - confettiCanvas.height;
-            this.size = Math.random() * 8 + 5;
-            this.speedY = Math.random() * 3 + 2;
-            this.speedX = Math.random() * 2 - 1;
-            this.color = confettiColors[Math.floor(Math.random() * confettiColors.length)];
-            this.rotation = Math.random() * 360;
-            this.rotationSpeed = Math.random() * 10 - 5;
-            this.shape = Math.random() > 0.5 ? 'circle' : 'square';
-        }
-        
-        update() {
-            this.y += this.speedY;
-            this.x += this.speedX;
-            this.rotation += this.rotationSpeed;
-            
-            // Reset if particle goes off screen
-            if (this.y > confettiCanvas.height) {
-                this.y = -20;
-                this.x = Math.random() * confettiCanvas.width;
-            }
-        }
-        
-        draw() {
-            ctx.save();
-            ctx.translate(this.x, this.y);
-            ctx.rotate(this.rotation * Math.PI / 180);
-            ctx.fillStyle = this.color;
-            
-            if (this.shape === 'circle') {
-                ctx.beginPath();
-                ctx.arc(0, 0, this.size / 2, 0, Math.PI * 2);
-                ctx.fill();
-            } else {
-                ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
-            }
-            
-            ctx.restore();
-        }
+
+    update() {
+      this.y += this.speedY;
+      this.x += this.speedX;
+      this.rotation += this.rotationSpeed;
+
+      // Reset if particle goes off screen
+      if (this.y > confettiCanvas.height) {
+        this.y = -20;
+        this.x = Math.random() * confettiCanvas.width;
+      }
     }
-    
-    // Create initial confetti particles (reduced count for better performance)
-    const particleCount = window.innerWidth < 768 ? 50 : 80;
-    for (let i = 0; i < particleCount; i++) {
-        confettiParticles.push(new Confetti());
+
+    draw() {
+      ctx.save();
+      ctx.translate(this.x, this.y);
+      ctx.rotate((this.rotation * Math.PI) / 180);
+      ctx.fillStyle = this.color;
+
+      if (this.shape === "circle") {
+        ctx.beginPath();
+        ctx.arc(0, 0, this.size / 2, 0, Math.PI * 2);
+        ctx.fill();
+      } else {
+        ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
+      }
+
+      ctx.restore();
     }
-    
-    // Check if user prefers reduced motion
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    
-    // Animation loop
-    function animateConfetti() {
-        // Skip animation if user prefers reduced motion
-        if (prefersReducedMotion) {
-            return;
-        }
-        
-        ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
-        
-        confettiParticles.forEach(particle => {
-            particle.update();
-            particle.draw();
-        });
-        
-        requestAnimationFrame(animateConfetti);
+  }
+
+  // Create initial confetti particles (reduced count for better performance)
+  const particleCount = window.innerWidth < 768 ? 50 : 80;
+  for (let i = 0; i < particleCount; i++) {
+    confettiParticles.push(new Confetti());
+  }
+
+  // Check if user prefers reduced motion
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Animation loop
+  function animateConfetti() {
+    // Skip animation if user prefers reduced motion
+    if (prefersReducedMotion) {
+      return;
     }
-    
-    animateConfetti();
+
+    ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+
+    confettiParticles.forEach(particle => {
+      particle.update();
+      particle.draw();
+    });
+
+    requestAnimationFrame(animateConfetti);
+  }
+
+  animateConfetti();
 }
