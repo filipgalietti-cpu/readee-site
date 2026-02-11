@@ -92,7 +92,7 @@ body {
 }
 
 .header-logo {
-  max-height: 48px;
+  max-height: 100px;
   width: auto;
   height: auto;
   display: block;
@@ -251,13 +251,23 @@ body {
 /* Mobile responsive logo sizing */
 @media (max-width: 768px) {
   .header-logo {
-    max-height: 40px;
+    max-height: 76px;
+    margin: 4px 0;
+  }
+  
+  .celebration-logo {
+    max-width: 180px;
   }
 }
 
 @media (max-width: 480px) {
   .header-logo {
-    max-height: 36px;
+    max-height: 64px;
+    margin: 2px 0;
+  }
+  
+  .celebration-logo {
+    max-width: 150px;
   }
 }
 
