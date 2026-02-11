@@ -111,6 +111,34 @@ This project uses Prettier and ESLint to maintain code quality and consistency.
 - **`.prettierignore`**: Files and directories to exclude from formatting
 - **`eslint.config.js`**: ESLint configuration for JavaScript linting (browser environment, ES2022)
 
+### Automated Link Checking
+
+This project includes a GitHub Actions workflow that automatically checks for broken links on the live site.
+
+#### How It Works
+
+The link-check workflow (`.github/workflows/link-check.yml`) uses the Lychee link checker to:
+- Recursively scan all pages on the production site (`https://filipgalietti-cpu.github.io/readee-site/`)
+- Check both internal and external links for validity
+- Run automatically on pull requests to the main branch
+- Can be manually triggered from the Actions tab
+
+#### How Failures Are Reported
+
+When broken links are detected:
+
+1. **The workflow fails** - The GitHub Actions check will show a red ❌ status
+2. **Detailed logs** - The workflow output includes verbose information about each broken link, including:
+   - The URL of the broken link
+   - The HTTP status code received
+   - The page where the broken link was found
+3. **Automatic issue creation** - If broken links are found, an issue is automatically created in the repository with:
+   - Title: "Broken links detected on live site"
+   - Labels: `bug`, `broken-link`
+   - Detailed report of all broken links from the Lychee output
+
+This ensures broken links are caught before they reach production and provides clear visibility into link health.
+
 ## Contributing
 
 This is an early-stage project. If you're interested in contributing or learning more about READEE, please reach out through the questionnaire on the website.

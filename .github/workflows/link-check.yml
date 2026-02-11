@@ -1,0 +1,38 @@
+# Workflow for checking broken links on the live site
+name: Check for broken links
+
+on:
+  # Runs on pull requests
+  pull_request:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN
+permissions:
+  contents: read
+
+jobs:
+  link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check links on live site
+        uses: lycheeverse/lychee-action@v1
+        with:
+          # Scan the production GitHub Pages URL recursively
+          args: --verbose --no-progress --exclude-all-private --max-concurrency 8 'https://filipgalietti-cpu.github.io/readee-site/'
+          # Fail the workflow if broken links are found
+          fail: true
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      
+      - name: Create Issue From File
+        if: failure()
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: Broken links detected on live site
+          content-filepath: ./lychee/out.md
+          labels: |
+            bug
+            broken-link
