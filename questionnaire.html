@@ -154,6 +154,17 @@
           </div>
 
           <div class="form-group">
+            <label for="phone">Phone Number (optional)</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="(555) 123-4567"
+            />
+            <span class="error-message"></span>
+          </div>
+
+          <div class="form-group">
             <label for="role">I am a... *</label>
             <select id="role" name="role" required>
               <option value="">-- Please select your role --</option>
@@ -164,7 +175,7 @@
           </div>
 
           <div class="form-group">
-            <label for="school">School or district name (optional)</label>
+            <label for="school">School or District Name (optional)</label>
             <input
               type="text"
               id="school"
@@ -178,29 +189,92 @@
             </datalist>
           </div>
 
-          <div class="form-group" id="students-group">
-            <label for="students">Number of students/children (optional)</label>
+          <div class="form-group" id="children-group">
+            <label for="children">Number of Children/Students *</label>
             <input
               type="number"
-              id="students"
-              name="students"
+              id="children"
+              name="children"
               min="1"
+              max="100"
               placeholder="Enter number"
-              disabled
+              required
             />
+            <span class="error-message"></span>
+          </div>
+
+          <div class="form-group" id="grades-group">
+            <label for="grades">Grade Level(s) *</label>
+            <div class="checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" name="grades[]" value="Pre-K" />
+                <span>Pre-K</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="grades[]" value="Kindergarten" />
+                <span>Kindergarten</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="grades[]" value="1st Grade" />
+                <span>1st Grade</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="grades[]" value="2nd Grade" />
+                <span>2nd Grade</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="grades[]" value="3rd Grade" />
+                <span>3rd Grade</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="grades[]" value="4th Grade" />
+                <span>4th Grade</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="grades[]" value="5th Grade" />
+                <span>5th Grade</span>
+              </label>
+            </div>
+            <span class="error-message"></span>
           </div>
 
           <div class="form-group">
-            <label for="goals">What are your literacy goals? (optional)</label>
+            <label for="reading-level">Current Reading Level (optional)</label>
+            <select id="reading-level" name="reading-level">
+              <option value="">-- Select if known --</option>
+              <option value="emergent">Emergent Reader (just starting)</option>
+              <option value="beginning">Beginning Reader (simple books)</option>
+              <option value="developing">Developing Reader (chapter books)</option>
+              <option value="fluent">Fluent Reader (reading independently)</option>
+              <option value="advanced">Advanced Reader (above grade level)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="goals">What are your literacy goals? *</label>
             <textarea
               id="goals"
               name="goals"
               rows="4"
               placeholder="Share what you hope to achieve with READEE..."
+              required
             ></textarea>
+            <span class="error-message"></span>
           </div>
 
-          <button type="submit" class="submit-button">Get Started</button>
+          <div class="form-group">
+            <label for="hear-about">How did you hear about READEE? (optional)</label>
+            <select id="hear-about" name="hear-about">
+              <option value="">-- Please select --</option>
+              <option value="school">School/Teacher Recommendation</option>
+              <option value="friend">Friend or Family</option>
+              <option value="search">Online Search</option>
+              <option value="social">Social Media</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <button type="submit" class="submit-button">Submit Information</button>
         </form>
       </div>
     </section>

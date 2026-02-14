@@ -173,6 +173,31 @@ if (intakeForm) {
       isValid = false;
     }
 
+    // Validate number of children
+    const children = document.getElementById("children");
+    if (children && (!children.value || children.value < 1)) {
+      showError(children, "Please enter the number of children/students");
+      isValid = false;
+    }
+
+    // Validate grade levels (at least one must be selected)
+    const gradeCheckboxes = document.querySelectorAll('input[name="grades[]"]:checked');
+    if (gradeCheckboxes.length === 0) {
+      const gradesGroup = document.getElementById("grades-group");
+      if (gradesGroup) {
+        const errorMessage = gradesGroup.querySelector(".error-message");
+        errorMessage.textContent = "Please select at least one grade level";
+        isValid = false;
+      }
+    }
+
+    // Validate goals
+    const goals = document.getElementById("goals");
+    if (goals && goals.value.trim().length < 10) {
+      showError(goals, "Please provide more details about your literacy goals");
+      isValid = false;
+    }
+
     // If form is valid, show success message and redirect to thank you page
     // Note: This is a static demo. In production, form data should be submitted to a backend before redirecting.
     if (isValid) {
@@ -256,28 +281,6 @@ formInputs.forEach(input => {
     input.style.borderColor = "";
   });
 });
-
-// ===== CONDITIONAL NUMBER OF STUDENTS FIELD =====
-const roleSelect = document.getElementById("role");
-const studentsInput = document.getElementById("students");
-
-if (roleSelect && studentsInput) {
-  roleSelect.addEventListener("change", function () {
-    if (this.value === "teacher") {
-      // Enable the number of students field for teachers/administrators
-      studentsInput.disabled = false;
-      studentsInput.required = true;
-      studentsInput.parentElement.querySelector("label").textContent =
-        "Number of students/children (required)";
-    } else if (this.value === "parent") {
-      // Enable for parents too
-      studentsInput.disabled = false;
-      studentsInput.required = false;
-      studentsInput.parentElement.querySelector("label").textContent =
-        "Number of students/children (optional)";
-    }
-  });
-}
 
 // ===== LOAD SCHOOL NAMES FROM CSV =====
 const schoolList = document.getElementById("school-list");
