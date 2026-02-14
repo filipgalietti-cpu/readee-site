@@ -272,13 +272,15 @@ if (roleSelect && studentsInput) {
       // Enable for parents too
       studentsInput.disabled = false;
       studentsInput.required = false;
-      studentsInput.parentElement.querySelector("label").textContent = "Number of Children (optional)";
+      studentsInput.parentElement.querySelector("label").textContent =
+        "Number of Children (optional)";
     } else {
       // Disable and clear for other roles
       studentsInput.disabled = true;
       studentsInput.required = false;
       studentsInput.value = "";
-      studentsInput.parentElement.querySelector("label").textContent = "Number of Students/Children";
+      studentsInput.parentElement.querySelector("label").textContent =
+        "Number of Students/Children";
     }
   });
 }
