@@ -661,6 +661,234 @@
             font-weight: 500;
         }
 
+        /* ===== TEACHERS ===== */
+        .teachers {
+            padding: 100px 24px;
+            background: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        .teachers::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: var(--gray-200);
+        }
+        .teachers-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .teachers-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .teachers h2 {
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            font-weight: 800;
+            color: var(--indigo-900);
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+        .teachers-header > p {
+            font-size: 1.1rem;
+            color: var(--gray-500);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        .teachers-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+        .teachers-features {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .teacher-feature {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .teacher-feature-icon {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+        .teacher-feature-icon.purple { background: var(--indigo-100); }
+        .teacher-feature-icon.green { background: #d1fae5; }
+        .teacher-feature-icon.amber { background: #fef3c7; }
+        .teacher-feature-icon.rose { background: #ffe4e6; }
+        .teacher-feature h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--indigo-900);
+            margin-bottom: 4px;
+        }
+        .teacher-feature p {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            line-height: 1.6;
+        }
+        .teachers-preview {
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-200);
+            padding: 28px;
+            position: relative;
+        }
+        .teachers-preview::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            background: linear-gradient(90deg, var(--emerald-400), var(--indigo-500));
+        }
+        .preview-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--gray-200);
+        }
+        .preview-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--gray-800);
+        }
+        .preview-badge {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--emerald-500);
+            background: #d1fae5;
+            padding: 4px 10px;
+            border-radius: 50px;
+        }
+        .preview-students {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+        .preview-student {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--white);
+            padding: 10px 12px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--gray-100);
+        }
+        .preview-student-avatar {
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+        .preview-student-info {
+            flex: 1;
+        }
+        .preview-student-name {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--gray-800);
+        }
+        .preview-student-progress {
+            height: 5px;
+            background: var(--gray-100);
+            border-radius: 50px;
+            margin-top: 4px;
+            overflow: hidden;
+        }
+        .preview-student-bar {
+            height: 100%;
+            border-radius: 50px;
+        }
+        .preview-class-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        .preview-class-stat {
+            text-align: center;
+            background: var(--white);
+            padding: 12px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--gray-100);
+        }
+        .preview-class-stat strong {
+            display: block;
+            font-size: 1.2rem;
+            font-weight: 800;
+            font-family: 'Bricolage Grotesque', serif;
+            color: var(--indigo-700);
+        }
+        .preview-class-stat span {
+            font-size: 0.72rem;
+            color: var(--gray-500);
+        }
+
+        /* Teacher CTA banner */
+        .teacher-cta-banner {
+            background: linear-gradient(135deg, var(--indigo-50) 0%, #f0ebff 50%, #e8f5e9 100%);
+            border: 1px solid var(--indigo-200);
+            border-radius: var(--radius);
+            padding: 36px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+        }
+        .teacher-cta-text h3 {
+            font-size: 1.25rem;
+            color: var(--indigo-900);
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+        .teacher-cta-text p {
+            font-size: 0.95rem;
+            color: var(--gray-600);
+            line-height: 1.5;
+        }
+        .btn-teacher {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--indigo-600);
+            color: var(--white);
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: all 0.25s;
+            white-space: nowrap;
+            box-shadow: 0 4px 16px rgba(99,102,241,0.25);
+        }
+        .btn-teacher:hover {
+            background: var(--indigo-700);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(99,102,241,0.35);
+        }
+
+        @media (max-width: 900px) {
+            .teachers-grid { grid-template-columns: 1fr; }
+            .teacher-cta-banner { flex-direction: column; text-align: center; }
+        }
+
         /* ===== FAQ ===== */
         .faq {
             padding: 100px 24px;
@@ -892,6 +1120,7 @@
             <div class="nav-links">
                 <a href="#how-it-works">How It Works</a>
                 <a href="#why-readee">Why Readee</a>
+                <a href="#teachers">For Teachers</a>
                 <a href="login.html">Log In</a>
                 <a href="questionnaire.html" class="nav-cta">Get Started Free</a>
             </div>
@@ -906,6 +1135,7 @@
         <button class="mobile-close" onclick="this.parentElement.classList.remove('open')">&times;</button>
         <a href="#how-it-works" onclick="this.parentElement.classList.remove('open')">How It Works</a>
         <a href="#why-readee" onclick="this.parentElement.classList.remove('open')">Why Readee</a>
+        <a href="#teachers" onclick="this.parentElement.classList.remove('open')">For Teachers</a>
         <a href="login.html">Log In</a>
         <a href="questionnaire.html">Get Started Free →</a>
     </div>
@@ -1115,6 +1345,109 @@
         </div>
     </section>
 
+    <!-- TEACHERS -->
+    <section class="teachers reveal" id="teachers">
+        <div class="teachers-inner">
+            <div class="teachers-header">
+                <span class="section-label">For Educators</span>
+                <h2>Built to support your classroom — not replace it</h2>
+                <p>Readee is a supplemental tool that reinforces what you're already teaching. Assign it as independent practice and watch students build confidence.</p>
+            </div>
+
+            <div class="teachers-grid">
+                <div class="teachers-features">
+                    <div class="teacher-feature">
+                        <div class="teacher-feature-icon purple">📊</div>
+                        <div>
+                            <h3>Class-wide progress dashboard</h3>
+                            <p>See every student's phonics, vocabulary, and comprehension progress at a glance. No more guessing who needs extra support.</p>
+                        </div>
+                    </div>
+                    <div class="teacher-feature">
+                        <div class="teacher-feature-icon green">📐</div>
+                        <div>
+                            <h3>ELA standards aligned</h3>
+                            <p>Every lesson maps to Common Core and state ELA standards, so Readee practice counts toward your curriculum goals.</p>
+                        </div>
+                    </div>
+                    <div class="teacher-feature">
+                        <div class="teacher-feature-icon amber">⏱️</div>
+                        <div>
+                            <h3>10 minutes — fits any block</h3>
+                            <p>Use it during centers, morning work, or as homework. Short enough to fit your schedule, structured enough to build real skills.</p>
+                        </div>
+                    </div>
+                    <div class="teacher-feature">
+                        <div class="teacher-feature-icon rose">🧩</div>
+                        <div>
+                            <h3>Designed for diverse learners</h3>
+                            <p>Calm visual design, predictable structure, and scaffolded support — built with neurodiverse and struggling readers in mind.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="teachers-preview">
+                    <div class="preview-header">
+                        <span class="preview-title">Mrs. Johnson's Class</span>
+                        <span class="preview-badge">● 18 active students</span>
+                    </div>
+                    <div class="preview-students">
+                        <div class="preview-student">
+                            <div class="preview-student-avatar" style="background: linear-gradient(135deg, var(--amber-400), var(--rose-400));">🦊</div>
+                            <div class="preview-student-info">
+                                <div class="preview-student-name">Emma T.</div>
+                                <div class="preview-student-progress"><div class="preview-student-bar" style="width:85%; background: var(--indigo-500);"></div></div>
+                            </div>
+                        </div>
+                        <div class="preview-student">
+                            <div class="preview-student-avatar" style="background: linear-gradient(135deg, var(--emerald-400), var(--sky-400));">🐻</div>
+                            <div class="preview-student-info">
+                                <div class="preview-student-name">Liam R.</div>
+                                <div class="preview-student-progress"><div class="preview-student-bar" style="width:72%; background: var(--violet-500);"></div></div>
+                            </div>
+                        </div>
+                        <div class="preview-student">
+                            <div class="preview-student-avatar" style="background: linear-gradient(135deg, var(--violet-500), var(--indigo-400));">🐱</div>
+                            <div class="preview-student-info">
+                                <div class="preview-student-name">Sofia M.</div>
+                                <div class="preview-student-progress"><div class="preview-student-bar" style="width:93%; background: var(--emerald-500);"></div></div>
+                            </div>
+                        </div>
+                        <div class="preview-student">
+                            <div class="preview-student-avatar" style="background: linear-gradient(135deg, var(--rose-400), var(--amber-400));">🐶</div>
+                            <div class="preview-student-info">
+                                <div class="preview-student-name">Noah K.</div>
+                                <div class="preview-student-progress"><div class="preview-student-bar" style="width:60%; background: var(--amber-500);"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="preview-class-stats">
+                        <div class="preview-class-stat">
+                            <strong>84%</strong>
+                            <span>Avg. completion</span>
+                        </div>
+                        <div class="preview-class-stat">
+                            <strong>12 min</strong>
+                            <span>Avg. session</span>
+                        </div>
+                        <div class="preview-class-stat">
+                            <strong>+2.1</strong>
+                            <span>Reading levels gained</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="teacher-cta-banner">
+                <div class="teacher-cta-text">
+                    <h3>Bring Readee to your classroom — it's free</h3>
+                    <p>Set up your class in under 5 minutes. No budget approval needed, no IT department required.</p>
+                </div>
+                <a href="questionnaire.html" class="btn-teacher">I'm a Teacher →</a>
+            </div>
+        </div>
+    </section>
+
     <!-- FAQ -->
     <section class="faq reveal">
         <div class="faq-inner">
@@ -1140,6 +1473,10 @@
             <div class="faq-item">
                 <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How long does each lesson take?</div>
                 <div class="faq-a"><p>About 10 minutes. Short enough to fit into any routine, long enough to build real skills. Consistency matters more than marathon sessions.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I use Readee in my classroom?</div>
+                <div class="faq-a"><p>Yes! Readee works great during centers, morning work, independent practice, or as structured homework. You'll get a teacher dashboard to track every student's progress. Setup takes under 5 minutes and it's completely free.</p></div>
             </div>
         </div>
     </section>
