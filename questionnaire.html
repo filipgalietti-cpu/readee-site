@@ -358,15 +358,34 @@
             document.getElementById('step3TeacherNext').disabled=!(school.length>0&&selectedGrades.length>0&&selectedClassSize.length>0);
         }
 
+        // === API ===
+        const API_URL='https://readee-app2-0.vercel.app/api/signups';
+
+        async function sendSignup(data){
+            try{
+                const res=await fetch(API_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+                if(!res.ok)console.error('Signup API error:',res.status);
+            }catch(err){console.error('Signup API error:',err)}
+        }
+
         // === SUBMIT ===
         function submitParent(){
             const fn=document.getElementById('firstName').value.trim(),ln=document.getElementById('lastName').value.trim(),em=document.getElementById('email').value.trim();
+
+            // Collect children data
+            const childrenData=children.map(c=>({
+                name:document.getElementById('childName_'+c.id).value.trim(),
+                grade:document.getElementById('childGrade_'+c.id).value
+            }));
+
+            // Send to API (fire and forget — don't block the UI)
+            sendSignup({role:'parent',first_name:fn,last_name:ln,email:em,children:childrenData});
+
+            // Build summary HTML
             let h='<h4>Account Summary</h4><div class="summary-row"><span class="label">Name</span><span class="value">'+fn+' '+ln+'</span></div><div class="summary-row"><span class="label">Email</span><span class="value">'+em+'</span></div><div class="summary-row"><span class="label">Children</span><span class="value">';
-            children.forEach((c,i)=>{
-                const n=document.getElementById('childName_'+c.id).value.trim();
-                const g=document.getElementById('childGrade_'+c.id).value;
-                const gl=gradeOptions.find(o=>o.value===g);
-                h+='<div class="child-summary"><div class="child-dot" style="background:'+childColors[i%childColors.length]+'"></div>'+n+' — '+(gl?gl.label:g)+'</div>';
+            childrenData.forEach((c,i)=>{
+                const gl=gradeOptions.find(o=>o.value===c.grade);
+                h+='<div class="child-summary"><div class="child-dot" style="background:'+childColors[i%childColors.length]+'"></div>'+c.name+' — '+(gl?gl.label:c.grade)+'</div>';
             });
             h+='</span></div>';
             document.getElementById('parentSummary').innerHTML=h;
@@ -378,6 +397,16 @@
 
         function submitTeacher(){
             const fn=document.getElementById('firstName').value.trim(),ln=document.getElementById('lastName').value.trim(),em=document.getElementById('email').value.trim(),sc=document.getElementById('schoolName').value.trim();
+            const notes=document.getElementById('teacherNotes').value.trim();
+
+            // Parse class size to number
+            const sizeMap={'1-10':10,'11-20':20,'21-30':30,'30+':35};
+            const classNum=sizeMap[selectedClassSize]||null;
+
+            // Send to API
+            sendSignup({role:'teacher',first_name:fn,last_name:ln,email:em,school_name:sc,grades:selectedGrades,class_size:classNum,notes:notes||null});
+
+            // Build summary HTML
             const gd=selectedGrades.map(g=>gradeLabels[g]||g).join(', ');
             document.getElementById('teacherSummary').innerHTML='<h4>Your Request</h4><div class="summary-row"><span class="label">Name</span><span class="value">'+fn+' '+ln+'</span></div><div class="summary-row"><span class="label">Email</span><span class="value">'+em+'</span></div><div class="summary-row"><span class="label">School</span><span class="value">'+sc+'</span></div><div class="summary-row"><span class="label">Grades</span><span class="value">'+gd+'</span></div><div class="summary-row"><span class="label">Class Size</span><span class="value">'+selectedClassSize+' students</span></div>';
             document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));
