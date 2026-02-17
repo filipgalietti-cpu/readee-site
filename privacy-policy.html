@@ -1,272 +1,197 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Privacy Policy - READEE</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="header-container">
-        <a href="index.html" class="logo-link">
-          <img src="assets/readee-logo.png" alt="READEE logo" class="header-logo" />
-        </a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — Readee</title>
+    <meta name="description" content="How Readee collects, uses, and protects your data. COPPA compliant.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root{--indigo-900:#1e1b4b;--indigo-800:#272463;--indigo-700:#312e81;--indigo-600:#4338ca;--indigo-500:#6366f1;--indigo-400:#818cf8;--indigo-300:#a5b4fc;--indigo-200:#c7d2fe;--indigo-100:#e0e7ff;--indigo-50:#eef2ff;--violet-500:#8b5cf6;--white:#ffffff;--gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;--gray-700:#374151;--gray-800:#1f2937;--gray-900:#111827;--radius:16px;--radius-sm:10px;--radius-lg:24px}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'DM Sans',-apple-system,sans-serif;color:var(--gray-800);background:var(--white);-webkit-font-smoothing:antialiased}
+        h1,h2,h3,h4,h5{font-family:'Bricolage Grotesque',serif}
 
-        <!-- Desktop Navigation -->
-        <nav class="desktop-nav">
-          <div class="nav-item dropdown">
-            <a href="#" class="nav-link">Programs <span class="dropdown-arrow">▾</span></a>
-            <div class="dropdown-menu">
-              <a href="index.html#why-readee" class="dropdown-item">Why Readee?</a>
-              <a href="index.html#how-it-works" class="dropdown-item">How It Works</a>
-              <a href="engaging-effective.html" class="dropdown-item">Engaging & Effective</a>
+        nav{position:sticky;top:0;z-index:100;padding:16px 24px;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.06)}
+        .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+        .nav-logo{font-family:'Bricolage Grotesque',serif;font-weight:800;font-size:1.5rem;color:var(--indigo-700);text-decoration:none}
+        .nav-logo span{color:var(--indigo-400)}
+        .nav-links{display:flex;align-items:center;gap:32px}
+        .nav-links a{text-decoration:none;color:var(--gray-600);font-size:.95rem;font-weight:500;transition:color .2s}
+        .nav-links a:hover{color:var(--indigo-600)}
+        .nav-cta{background:var(--indigo-600)!important;color:var(--white)!important;padding:10px 22px!important;border-radius:50px!important;font-weight:600!important;transition:background .2s,transform .2s!important}
+        .nav-cta:hover{background:var(--indigo-700)!important;transform:translateY(-1px)!important}
+        .mobile-toggle{display:none;background:none;border:none;cursor:pointer}
+        .mobile-nav{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(255,255,255,0.98);z-index:200;padding:80px 32px;flex-direction:column;gap:24px}
+        .mobile-nav.open{display:flex}
+        .mobile-close{position:absolute;top:20px;right:24px;background:none;border:none;font-size:2rem;color:var(--gray-600);cursor:pointer}
+        .mobile-nav a{font-size:1.2rem;color:var(--gray-700);text-decoration:none;font-weight:600}
+
+        .page-hero{padding:80px 24px 40px;text-align:center;background:linear-gradient(160deg,var(--indigo-50) 0%,var(--white) 50%,#f5f0ff 100%)}
+        .page-hero h1{font-size:clamp(2rem,4vw,3rem);font-weight:800;color:var(--indigo-900);letter-spacing:-1px;margin-bottom:8px}
+        .page-hero .date{font-size:.9rem;color:var(--gray-400)}
+
+        .content{max-width:720px;margin:0 auto;padding:48px 24px 80px}
+        .content section{margin-bottom:40px}
+        .content h2{font-size:1.3rem;font-weight:800;color:var(--indigo-900);margin-bottom:12px;letter-spacing:-.3px}
+        .content p{font-size:.95rem;color:var(--gray-600);line-height:1.8;margin-bottom:12px}
+        .content ul{list-style:none;margin:12px 0;display:flex;flex-direction:column;gap:10px}
+        .content li{font-size:.93rem;color:var(--gray-600);line-height:1.6;padding-left:20px;position:relative}
+        .content li::before{content:'•';position:absolute;left:0;color:var(--indigo-400);font-weight:700}
+        .content strong{color:var(--gray-800)}
+        .content a{color:var(--indigo-600);text-decoration:none;font-weight:600}
+        .content a:hover{text-decoration:underline}
+
+        footer{background:var(--indigo-900);padding:60px 24px 30px;color:var(--indigo-300)}
+        .footer-inner{max-width:1000px;margin:0 auto}
+        .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+        .footer-brand .nav-logo{color:var(--white)}
+        .footer-brand .nav-logo span{color:var(--indigo-400)}
+        .footer-brand p{margin-top:12px;font-size:.9rem;line-height:1.6;color:var(--indigo-300)}
+        .footer-col h4{color:var(--white);font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px}
+        .footer-col a{display:block;color:var(--indigo-300);text-decoration:none;font-size:.9rem;margin-bottom:10px;transition:color .2s}
+        .footer-col a:hover{color:var(--white)}
+        .footer-bottom{border-top:1px solid var(--indigo-800);padding-top:24px;display:flex;justify-content:space-between;font-size:.8rem;color:var(--indigo-400)}
+        .footer-bottom a{color:var(--indigo-400);text-decoration:none;margin-left:20px;transition:color .2s}
+        .footer-bottom a:hover{color:var(--white)}
+
+        @media(max-width:900px){.footer-top{grid-template-columns:1fr 1fr}}
+        @media(max-width:640px){.nav-links{display:none}.mobile-toggle{display:block}.footer-top{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:12px;text-align:center}.footer-bottom div{margin:0}}
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">READ<span>EE</span></a>
+            <div class="nav-links">
+                <a href="index.html#how-it-works">How It Works</a>
+                <a href="teachers.html">For Teachers</a>
+                <a href="https://learn.readee.app/login">Log In</a>
+                <a href="https://learn.readee.app/signup" class="nav-cta">Get Started Free</a>
             </div>
-          </div>
-
-          <div class="nav-item dropdown">
-            <a href="#" class="nav-link">For Educators <span class="dropdown-arrow">▾</span></a>
-            <div class="dropdown-menu">
-              <a href="supporting-classroom.html" class="dropdown-item">Classroom Support</a>
-              <a href="standards.html" class="dropdown-item">ELA Standards</a>
-              <a href="assessment.html" class="dropdown-item">Assessment Tools</a>
-            </div>
-          </div>
-
-          <div class="nav-item dropdown">
-            <a href="#" class="nav-link">Resources <span class="dropdown-arrow">▾</span></a>
-            <div class="dropdown-menu">
-              <a href="index.html#readee-process" class="dropdown-item">Reading Process</a>
-              <a href="standards.html" class="dropdown-item">Learning Standards</a>
-            </div>
-          </div>
-
-          <div class="nav-item">
-            <a href="nonprofit-literacy.html" class="nav-link">About</a>
-          </div>
-
-          <div class="nav-item">
-            <a href="index.html#get-started" class="nav-link">Success Stories</a>
-          </div>
-
-          <div class="nav-item">
-            <a href="questionnaire.html" class="nav-link-cta">Get Started</a>
-          </div>
-        </nav>
-
-        <!-- Mobile Menu Toggle -->
-        <button id="menuToggle" class="menu-toggle" aria-label="Toggle menu">
-          <span class="menu-text">Menu</span>
-          <span class="hamburger-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-        </button>
-      </div>
-
-      <!-- Mobile Navigation -->
-      <nav id="navMenu" class="mobile-nav">
-        <a href="login.html" class="mobile-nav-link mobile-nav-login">
-          <span class="login-icon">🔐</span>
-          <span class="login-text">Login to App</span>
-          <span class="login-arrow">→</span>
-        </a>
-
-        <div class="mobile-nav-section">
-          <div class="mobile-nav-header">Programs</div>
-          <a href="index.html#why-readee" class="mobile-nav-link">Why Readee?</a>
-          <a href="index.html#how-it-works" class="mobile-nav-link">How It Works</a>
-          <a href="engaging-effective.html" class="mobile-nav-link">Engaging & Effective</a>
+            <button class="mobile-toggle" onclick="document.getElementById('mobileNav').classList.add('open')" aria-label="Menu">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
         </div>
-
-        <div class="mobile-nav-section">
-          <div class="mobile-nav-header">For Educators</div>
-          <a href="supporting-classroom.html" class="mobile-nav-link">Classroom Support</a>
-          <a href="standards.html" class="mobile-nav-link">ELA Standards</a>
-          <a href="assessment.html" class="mobile-nav-link">Assessment Tools</a>
-        </div>
-
-        <div class="mobile-nav-section">
-          <div class="mobile-nav-header">Resources</div>
-          <a href="index.html#readee-process" class="mobile-nav-link">Reading Process</a>
-          <a href="standards.html" class="mobile-nav-link">Learning Standards</a>
-        </div>
-
-        <a href="nonprofit-literacy.html" class="mobile-nav-link">About</a>
-        <a href="index.html#get-started" class="mobile-nav-link">Success Stories</a>
-        <a href="questionnaire.html" class="mobile-nav-link mobile-nav-cta">Get Started</a>
-      </nav>
-    </header>
-    <div id="hero">
-      <h1>🔒 Privacy Policy</h1>
-      <p>How we protect and use your information</p>
+    </nav>
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-close" onclick="this.parentElement.classList.remove('open')">&times;</button>
+        <a href="index.html">Home</a>
+        <a href="index.html#how-it-works" onclick="this.parentElement.classList.remove('open')">How It Works</a>
+        <a href="teachers.html">For Teachers</a>
+        <a href="https://learn.readee.app/login">Log In</a>
+        <a href="https://learn.readee.app/signup">Get Started Free →</a>
     </div>
-    <section id="info-content">
-      <div class="container">
-        <div class="info-card">
-          <h2>Privacy Policy</h2>
-          <p><em>Last updated: February 11, 2026</em></p>
-          <p>
-            At READEE, we take your privacy seriously. This policy explains what information we
-            collect, how we use it, and how we protect it.
-          </p>
-        </div>
 
-        <div class="info-card">
-          <h2>Information We Collect</h2>
-          <p>We collect:</p>
-          <ul>
-            <li>
-              <strong>Account Information:</strong> Name, email address, and password for
-              parent/teacher accounts
-            </li>
-            <li>
-              <strong>Student Information:</strong> First name, grade level, and learning data
-              (non-personally identifiable)
-            </li>
-            <li>
-              <strong>Usage Data:</strong> Information about how you use READEE, including lesson
-              completion and progress
-            </li>
-            <li>
-              <strong>Technical Data:</strong> IP address, browser type, and device information
-            </li>
-          </ul>
-        </div>
+    <div class="page-hero">
+        <h1>Privacy Policy</h1>
+        <p class="date">Last updated: February 2026</p>
+    </div>
 
-        <div class="info-card">
-          <h2>How We Use Your Information</h2>
-          <p>We use collected information to:</p>
-          <ul>
-            <li>Provide and improve our educational services</li>
-            <li>Personalize learning experiences</li>
-            <li>Communicate with users about their accounts and our services</li>
-            <li>Analyze and improve program effectiveness</li>
-            <li>Ensure security and prevent fraud</li>
-          </ul>
-        </div>
+    <div class="content">
+        <section>
+            <h2>Introduction</h2>
+            <p>Readee ("we," "us," or "our") is committed to protecting the privacy of our users, especially the children who use our platform. This Privacy Policy explains what information we collect, how we use it, and your rights regarding your data.</p>
+        </section>
 
-        <div class="info-card">
-          <h2>Student Privacy</h2>
-          <p>
-            We comply with COPPA (Children's Online Privacy Protection Act) and FERPA (Family
-            Educational Rights and Privacy Act). We:
-          </p>
-          <ul>
-            <li>Never sell student data</li>
-            <li>Never use student data for advertising</li>
-            <li>Require parental consent for children under 13</li>
-            <li>Allow parents to review and delete their child's information</li>
-          </ul>
-        </div>
+        <section>
+            <h2>Information We Collect</h2>
+            <p>When you create an account and use Readee, we collect the following information:</p>
+            <ul>
+                <li><strong>Parent account information:</strong> Name and email address</li>
+                <li><strong>Child profile information:</strong> Child's first name and grade level</li>
+                <li><strong>Reading assessment results:</strong> Scores and responses from diagnostic reading quizzes</li>
+                <li><strong>Lesson progress:</strong> Completed lessons, XP earned, and reading level progression</li>
+                <li><strong>Usage data:</strong> How you interact with the platform to help us improve the experience</li>
+            </ul>
+        </section>
 
-        <div class="info-card">
-          <h2>Data Security</h2>
-          <p>
-            We use industry-standard security measures to protect your information, including
-            encryption, secure servers, and regular security audits.
-          </p>
-        </div>
+        <section>
+            <h2>How We Use Your Information</h2>
+            <ul>
+                <li><strong>To provide the service:</strong> Personalize lesson paths, track progress, and deliver reading assessments</li>
+                <li><strong>To improve the product:</strong> Analyze usage patterns to make Readee better for all families</li>
+                <li><strong>To communicate with you:</strong> Send account-related emails such as signup confirmations and progress updates</li>
+            </ul>
+        </section>
 
-        <div class="info-card">
-          <h2>Your Rights</h2>
-          <p>You have the right to:</p>
-          <ul>
-            <li>Access your data</li>
-            <li>Request corrections to your data</li>
-            <li>Delete your account and associated data</li>
-            <li>Opt out of non-essential communications</li>
-          </ul>
-        </div>
+        <section>
+            <h2>Data Sharing</h2>
+            <p>We do not sell your personal data to third parties. We use the following services to operate Readee:</p>
+            <ul>
+                <li><strong>Supabase:</strong> Database and authentication services for secure data storage</li>
+                <li><strong>Resend:</strong> Transactional email delivery for account communications</li>
+            </ul>
+            <p>These services process data only as necessary to provide their functions and are bound by their own privacy policies.</p>
+        </section>
 
-        <div class="info-card">
-          <h2>Contact Us About Privacy</h2>
-          <p>Questions about our privacy practices? Contact our privacy team:</p>
-          <p>Email: privacy@readee.org</p>
-        </div>
-        <div class="button-container">
-          <a href="index.html" class="get-started-button">Back to Home</a>
-          <a href="questionnaire.html" class="get-started-button">Get Started</a>
-        </div>
-      </div>
-    </section>
+        <section>
+            <h2>COPPA Compliance</h2>
+            <p>Readee serves children under 13 and complies with the Children's Online Privacy Protection Act (COPPA):</p>
+            <ul>
+                <li>A parent or guardian account is required before any child profile can be created</li>
+                <li>We do not collect personal information directly from children without a parent account</li>
+                <li>Child profiles use only a first name — no email, full name, or other identifying information is collected from children</li>
+                <li>Parents can review, update, or delete their child's information at any time through the Settings page</li>
+                <li>Parental consent is obtained through the account creation process</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Data Security</h2>
+            <p>We take reasonable measures to protect your information, including encrypted data transmission (HTTPS), secure authentication, and access controls on our database. However, no method of electronic storage is 100% secure.</p>
+        </section>
+
+        <section>
+            <h2>Your Rights</h2>
+            <p>You may request access to, correction of, or deletion of your personal data at any time by contacting us. You can also delete your account through the Settings page in the app.</p>
+        </section>
+
+        <section>
+            <h2>Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time. We will notify you of any material changes by email or through a notice on our website.</p>
+        </section>
+
+        <section>
+            <h2>Contact Us</h2>
+            <p>If you have questions about this Privacy Policy or your data, please contact us at <a href="mailto:hello@readee.app">hello@readee.app</a>.</p>
+        </section>
+    </div>
 
     <footer>
-      <div class="footer-container">
-        <div class="footer-grid">
-          <!-- Learning Programs -->
-          <div class="footer-section">
-            <h3>Learning Programs</h3>
-            <ul>
-              <li><a href="nonprofit-literacy.html">Reading Fundamentals</a></li>
-              <li><a href="engaging-effective.html">Phonics & Vocabulary</a></li>
-              <li><a href="supporting-classroom.html">Comprehension Skills</a></li>
-              <li><a href="standards.html">ELA Standards Alignment</a></li>
-              <li><a href="assessment.html">Student Assessment</a></li>
-              <li><a href="progress-tracking.html">Progress Tracking</a></li>
-            </ul>
-          </div>
-
-          <!-- For Educators -->
-          <div class="footer-section">
-            <h3>For Educators</h3>
-            <ul>
-              <li><a href="teacher-resources.html">Teacher Resources</a></li>
-              <li><a href="classroom-tools.html">Classroom Tools</a></li>
-              <li><a href="lesson-plans.html">Lesson Plans</a></li>
-              <li><a href="professional-development.html">Professional Development</a></li>
-              <li><a href="educator-community.html">Educator Community</a></li>
-              <li><a href="training-materials.html">Training Materials</a></li>
-            </ul>
-          </div>
-
-          <!-- Resources -->
-          <div class="footer-section">
-            <h3>Resources</h3>
-            <ul>
-              <li><a href="get-started-guide.html">Get Started Guide</a></li>
-              <li><a href="parent-handbook.html">Parent Handbook</a></li>
-              <li><a href="activity-library.html">Activity Library</a></li>
-              <li><a href="reading-tips-blog.html">Reading Tips Blog</a></li>
-              <li><a href="success-stories.html">Success Stories</a></li>
-              <li><a href="faq.html">FAQ</a></li>
-            </ul>
-          </div>
-
-          <!-- About READEE -->
-          <div class="footer-section">
-            <h3>About READEE</h3>
-            <ul>
-              <li><a href="our-mission.html">Our Mission</a></li>
-              <li><a href="how-it-works.html">How It Works</a></li>
-              <li><a href="research-evidence.html">Research & Evidence</a></li>
-              <li><a href="partner-schools.html">Partner Schools</a></li>
-              <li><a href="contact-us.html">Contact Us</a></li>
-              <li><a href="careers.html">Careers</a></li>
-            </ul>
-          </div>
-
-          <!-- Support -->
-          <div class="footer-section">
-            <h3>Support</h3>
-            <ul>
-              <li><a href="help-center.html">Help Center</a></li>
-              <li><a href="technical-support.html">Technical Support</a></li>
-              <li><a href="accessibility.html">Accessibility</a></li>
-              <li><a href="system-status.html">System Status</a></li>
-              <li><a href="privacy-policy.html">Privacy Policy</a></li>
-              <li><a href="terms-of-service.html">Terms of Service</a></li>
-            </ul>
-          </div>
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo">READ<span>EE</span></a>
+                    <p>Helping every child become a confident reader, ages 4–9.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Programs</h4>
+                    <a href="about.html">About</a>
+                    <a href="teachers.html">For Educators</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <a href="contact-us.html">Contact Us</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Get Started</h4>
+                    <a href="https://learn.readee.app/signup">Sign Up</a>
+                    <a href="https://learn.readee.app/login">Log In</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 READEE. All rights reserved.</span>
+                <div>
+                    <a href="privacy-policy.html">Privacy</a>
+                    <a href="terms-of-service.html">Terms</a>
+                </div>
+            </div>
         </div>
-
-        <div class="footer-bottom">
-          <p>&copy; 2026 READEE. Building stronger readers, one student at a time.</p>
-        </div>
-      </div>
     </footer>
 
-    <script src="app.js"></script>
-  </body>
+</body>
 </html>
