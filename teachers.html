@@ -152,17 +152,22 @@
             const data = Object.fromEntries(new FormData(form));
 
             // Send to the signups API
+            // Split name into first/last for API
+            const nameParts = (data.name || '').trim().split(/\s+/);
+            const firstName = nameParts[0] || '';
+            const lastName = nameParts.slice(1).join(' ') || firstName;
+
             fetch('https://learn.readee.app/api/signups', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     email: data.email,
-                    role: 'educator',
-                    source: 'teacher_inquiry',
-                    name: data.name,
-                    school: data.school,
-                    grade: data.grade,
-                    classSize: data.classSize
+                    role: 'teacher',
+                    first_name: firstName,
+                    last_name: lastName,
+                    school_name: data.school,
+                    grades: [data.grade],
+                    class_size: data.classSize
                 })
             }).catch(() => {});
 
