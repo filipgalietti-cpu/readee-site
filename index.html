@@ -1205,6 +1205,81 @@
             color: var(--gray-400);
         }
 
+        /* ===== MEET THE TEAM ===== */
+        .team {
+            padding: 100px 24px;
+            background: var(--gray-50);
+        }
+        .team-inner {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .team h2 {
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            font-weight: 800;
+            color: var(--indigo-900);
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+        .team-sub {
+            font-size: 1.05rem;
+            color: var(--gray-500);
+            margin-bottom: 50px;
+            line-height: 1.7;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+        .team-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            padding: 36px 28px;
+            transition: all 0.3s;
+        }
+        .team-card:hover {
+            border-color: var(--indigo-300);
+            box-shadow: 0 8px 30px rgba(99,102,241,0.08);
+            transform: translateY(-3px);
+        }
+        .team-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: var(--white);
+            font-weight: 700;
+            font-family: 'Bricolage Grotesque', serif;
+        }
+        .team-name {
+            font-family: 'Bricolage Grotesque', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--indigo-900);
+            margin-bottom: 4px;
+        }
+        .team-role {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--indigo-500);
+            margin-bottom: 12px;
+        }
+        .team-bio {
+            font-size: 0.88rem;
+            color: var(--gray-500);
+            line-height: 1.65;
+        }
+        @media (max-width: 640px) {
+            .team-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+        }
+
         /* ===== FOOTER ===== */
         footer {
             background: var(--indigo-900);
@@ -1684,6 +1759,29 @@
             <p>Give your child the tools to build confidence, one lesson at a time. Setup takes 2 minutes.</p>
             <a href="https://learn.readee.app/signup" class="btn-primary">Get Started Free →</a>
             <p class="final-trust">Free plan available · No spam · Based on the Science of Reading</p>
+        </div>
+    </section>
+
+    <!-- MEET THE TEAM -->
+    <section class="team reveal">
+        <div class="team-inner">
+            <span class="section-label">Meet the Team</span>
+            <h2>The people behind Readee</h2>
+            <p class="team-sub">We're on a mission to make evidence-based reading instruction accessible to every family.</p>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-photo" style="background: linear-gradient(135deg, var(--indigo-400), var(--violet-500));">JK</div>
+                    <div class="team-name">Jennifer Klingerman</div>
+                    <div class="team-role">Founder & CEO</div>
+                    <p class="team-bio">Passionate about closing the literacy gap and putting the Science of Reading into the hands of every parent.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-photo" style="background: linear-gradient(135deg, var(--emerald-400), var(--indigo-500));">FG</div>
+                    <div class="team-name">Filip Galietti</div>
+                    <div class="team-role">Co-Founder & COO</div>
+                    <p class="team-bio">Focused on building a product that families love — from lesson design to the experience on every screen.</p>
+                </div>
+            </div>
         </div>
     </section>
 
