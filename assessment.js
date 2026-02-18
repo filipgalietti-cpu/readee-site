@@ -186,7 +186,7 @@ function calculateRecommendation(type) {
 
     // Analyze grade
     const grade = formData.get("grade");
-    if (grade === "pre-k" || grade === "k") {
+    if (grade === "k") {
       score.lite += 1;
     }
 
