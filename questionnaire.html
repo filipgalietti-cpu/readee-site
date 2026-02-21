@@ -15,8 +15,8 @@
         h1,h2,h3,h4,h5{font-family:'Bricolage Grotesque',serif}
         nav{padding:16px 24px;background:rgba(255,255,255,.8);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.05)}
         .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
-        .nav-logo{font-family:'Bricolage Grotesque',serif;font-weight:800;font-size:1.5rem;color:var(--indigo-700);text-decoration:none}
-        .nav-logo span{color:var(--indigo-400)}
+        .nav-logo{text-decoration:none;display:flex;align-items:center}
+        .nav-logo img{width:150px;height:auto}
         .nav-back{display:inline-flex;align-items:center;gap:6px;color:var(--gray-500);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
         .nav-back:hover{color:var(--indigo-600)}
         .container{max-width:560px;margin:0 auto;padding:48px 24px 80px}
@@ -118,7 +118,7 @@
 <body>
     <canvas class="confetti-canvas" id="confettiCanvas"></canvas>
 
-    <nav><div class="nav-inner"><a href="index.html" class="nav-logo">READ<span>EE</span></a><a href="index.html" class="nav-back">← Back to home</a></div></nav>
+    <nav><div class="nav-inner"><a href="index.html" class="nav-logo"><img src="assets/readee-logo.png" alt="Readee - Learn to Read"></a><a href="index.html" class="nav-back">← Back to home</a></div></nav>
 
     <div class="container">
         <div class="progress-wrap">
