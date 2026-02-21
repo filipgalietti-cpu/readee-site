@@ -858,30 +858,56 @@
             .pricing-grid { grid-template-columns: 1fr; }
         }
 
-        /* ===== STATS ===== */
-        .stats {
-            padding: 80px 24px;
+        /* ===== HOW IT WORKS ===== */
+        .how-it-works {
+            padding: 100px 24px;
             background: linear-gradient(135deg, var(--indigo-900) 0%, var(--indigo-800) 50%, #2d1b69 100%);
         }
-        .stats-inner {
-            max-width: 1000px;
+        .how-it-works-inner {
+            max-width: 900px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 32px;
             text-align: center;
-            align-items: start;
         }
-        .stat-item h3 {
-            font-size: clamp(2rem, 3vw, 2.8rem);
-            font-weight: 800;
+        .how-it-works-inner h2 {
             color: var(--white);
-            margin-bottom: 6px;
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            margin-bottom: 48px;
         }
-        .stat-item p {
+        .how-it-works-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 36px;
+            text-align: center;
+        }
+        .how-step {
+            padding: 32px 20px;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .how-step-num {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--indigo-500);
+            color: var(--white);
+            font-weight: 800;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+        .how-step h3 {
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .how-step p {
             color: var(--indigo-300);
             font-size: 0.9rem;
-            font-weight: 500;
+            line-height: 1.6;
         }
 
         /* ===== TEACHERS ===== */
@@ -1306,13 +1332,12 @@
             .benefits-grid { grid-template-columns: 1fr 1fr; }
             .steps { grid-template-columns: 1fr; }
             .testimonials { grid-template-columns: 1fr; }
-            .stats-inner { grid-template-columns: repeat(2, 1fr); }
+            .how-it-works-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
             .footer-top { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 640px) {
             .nav-links { display: none; }
             .mobile-toggle { display: block; }
-            .stats-inner { grid-template-columns: 1fr 1fr; gap: 24px; }
             .footer-top { grid-template-columns: 1fr; }
         }
 
@@ -1534,24 +1559,27 @@
         </div>
     </section>
 
-    <!-- STATS -->
-    <section class="stats reveal">
-        <div class="stats-inner">
-            <div class="stat-item">
-                <h3>10 min</h3>
-                <p>Per day is all it takes</p>
-            </div>
-            <div class="stat-item">
-                <h3 style="white-space: nowrap;">K–4th</h3>
-                <p>Grade levels supported</p>
-            </div>
-            <div class="stat-item">
-                <h3>Free</h3>
-                <p>Plan available</p>
-            </div>
-            <div class="stat-item">
-                <h3>3 skills</h3>
-                <p>Phonics · Vocab · Comprehension</p>
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works reveal">
+        <div class="how-it-works-inner">
+            <span class="section-label">How It Works</span>
+            <h2>Three steps to confident reading</h2>
+            <div class="how-it-works-grid">
+                <div class="how-step">
+                    <div class="how-step-num">1</div>
+                    <h3>Take a 2-minute assessment</h3>
+                    <p>A quick diagnostic pinpoints exactly where your child is — no guesswork needed.</p>
+                </div>
+                <div class="how-step">
+                    <div class="how-step-num">2</div>
+                    <h3>Get a personalized lesson plan</h3>
+                    <p>Readee builds a custom path through phonics, vocabulary, and comprehension — matched to your child's level.</p>
+                </div>
+                <div class="how-step">
+                    <div class="how-step-num">3</div>
+                    <h3>Watch your child grow</h3>
+                    <p>Short daily lessons build real skills. Track progress and celebrate every milestone together.</p>
+                </div>
             </div>
         </div>
     </section>
