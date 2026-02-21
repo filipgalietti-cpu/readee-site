@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>READEE — Help Your Struggling Reader Build Confidence</title>
     <meta name="description" content="Evidence-based reading program for children ages 5-10. Build phonics, vocabulary, and comprehension skills in just 10 minutes a day. Start your free trial.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -79,14 +81,11 @@
             justify-content: space-between;
         }
         .nav-logo {
-            font-family: 'Bricolage Grotesque', serif;
-            font-weight: 800;
-            font-size: 1.5rem;
-            color: var(--indigo-700);
             text-decoration: none;
-            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
         }
-        .nav-logo span { color: var(--indigo-400); }
+        .nav-logo img { height: 44px; width: auto; }
         .nav-links { display: flex; align-items: center; gap: 32px; }
         .nav-links a {
             text-decoration: none;
@@ -1341,7 +1340,7 @@
     <!-- NAV -->
     <nav id="nav">
         <div class="nav-inner">
-            <a href="index.html" class="nav-logo">READ<span>EE</span></a>
+            <a href="index.html" class="nav-logo"><img src="assets/readee-logo.png" alt="Readee - Learn to Read" height="44"></a>
             <div class="nav-links">
                 <a href="#how-it-works">How It Works</a>
                 <a href="#why-readee">Why Readee</a>
@@ -1692,7 +1691,7 @@
         <div class="footer-inner">
             <div class="footer-top">
                 <div class="footer-brand">
-                    <a href="index.html" class="nav-logo">READ<span>EE</span></a>
+                    <a href="index.html" class="nav-logo"><img src="assets/readee-logo.png" alt="Readee" height="32"></a>
                     <p>Helping every child become a confident reader, ages 5–10.</p>
                 </div>
                 <div class="footer-col">
