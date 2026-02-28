@@ -1277,7 +1277,6 @@
             border-radius: var(--radius-sm);
             margin-bottom: 12px;
             border: 1px solid var(--gray-200);
-            overflow: hidden;
             transition: border-color 0.2s;
         }
         .faq-item:hover { border-color: var(--indigo-300); }
@@ -1298,17 +1297,22 @@
             color: var(--indigo-400);
             font-weight: 300;
             transition: transform 0.3s;
+            flex-shrink: 0;
+            margin-left: 16px;
         }
         .faq-item.open .faq-q::after {
             transform: rotate(45deg);
         }
         .faq-a {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease;
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.35s ease;
         }
         .faq-item.open .faq-a {
-            max-height: 500px;
+            grid-template-rows: 1fr;
+        }
+        .faq-a-inner {
+            overflow: hidden;
         }
         .faq-a p {
             font-size: 0.9rem;
@@ -1743,27 +1747,27 @@
 
             <div class="faq-item">
                 <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How much does Readee cost?</div>
-                <div class="faq-a"><p>Readee offers a free plan with the diagnostic assessment and your first 2 lessons per level. Readee+ is $9.99/month (or $79.99/year) for the full lesson library, up to 5 children, and detailed progress reports. Start with a free 7-day trial — no credit card required.</p></div>
+                <div class="faq-a"><div class="faq-a-inner"><p>Readee offers a free plan with the diagnostic assessment and your first 2 lessons per level. Readee+ is $9.99/month (or $79.99/year) for the full lesson library, up to 5 children, and detailed progress reports. Start with a free 7-day trial — no credit card required.</p></div></div>
             </div>
             <div class="faq-item">
                 <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What ages is Readee designed for?</div>
-                <div class="faq-a"><p>Readee is built for children ages 5–10 (K through 4th grade). Lessons adapt to your child's reading level.</p></div>
+                <div class="faq-a"><div class="faq-a-inner"><p>Readee is built for children ages 5–10 (K through 4th grade). Lessons adapt to your child's reading level.</p></div></div>
             </div>
             <div class="faq-item">
                 <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is this good for kids with autism or learning differences?</div>
-                <div class="faq-a"><p>Absolutely. Readee was designed with neurodiverse learners in mind. The structured, predictable format and calm visual design help children on the spectrum feel comfortable and focused.</p></div>
+                <div class="faq-a"><div class="faq-a-inner"><p>Absolutely. Readee was designed with neurodiverse learners in mind. The structured, predictable format and calm visual design help children on the spectrum feel comfortable and focused.</p></div></div>
             </div>
             <div class="faq-item">
                 <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How is this different from other reading apps?</div>
-                <div class="faq-a"><p>Most reading apps are games that don't build real skills. Readee follows the Science of Reading — the same evidence-based approach used by the best literacy programs in schools.</p></div>
+                <div class="faq-a"><div class="faq-a-inner"><p>Most reading apps are games that don't build real skills. Readee follows the Science of Reading — the same evidence-based approach used by the best literacy programs in schools.</p></div></div>
             </div>
             <div class="faq-item">
                 <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How long does each lesson take?</div>
-                <div class="faq-a"><p>About 10 minutes. Short enough to fit into any routine, long enough to build real skills. Consistency matters more than marathon sessions.</p></div>
+                <div class="faq-a"><div class="faq-a-inner"><p>About 10 minutes. Short enough to fit into any routine, long enough to build real skills. Consistency matters more than marathon sessions.</p></div></div>
             </div>
             <div class="faq-item">
                 <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I use Readee in my classroom?</div>
-                <div class="faq-a"><p>Yes! Readee works great during centers, morning work, independent practice, or as structured homework. You'll get a teacher dashboard to track every student's progress. Setup takes under 5 minutes. Special educator pricing is available.</p></div>
+                <div class="faq-a"><div class="faq-a-inner"><p>Yes! Readee works great during centers, morning work, independent practice, or as structured homework. You'll get a teacher dashboard to track every student's progress. Setup takes under 5 minutes. Special educator pricing is available.</p></div></div>
             </div>
         </div>
     </section>
