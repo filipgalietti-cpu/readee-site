@@ -1264,30 +1264,22 @@
             max-width: 700px;
             margin: 0 auto;
         }
-        .faq .section-label {
-            text-align: center;
-            margin-bottom: 12px;
-        }
         .faq h2 {
             text-align: center;
             font-size: clamp(1.8rem, 3vw, 2.4rem);
             font-weight: 800;
             color: var(--indigo-900);
-            margin-bottom: 32px;
+            margin-bottom: 50px;
             letter-spacing: -0.5px;
         }
-        .faq-list {
-            background: var(--white);
-            border-radius: var(--radius);
-            border: 1px solid var(--gray-200);
-            overflow: hidden;
-        }
         .faq-item {
-            border-bottom: 1px solid var(--gray-200);
+            background: var(--white);
+            border-radius: var(--radius-sm);
+            margin-bottom: 12px;
+            border: 1px solid var(--gray-200);
+            transition: border-color 0.2s;
         }
-        .faq-item:last-child {
-            border-bottom: none;
-        }
+        .faq-item:hover { border-color: var(--indigo-300); }
         .faq-q {
             padding: 20px 24px;
             cursor: pointer;
@@ -1298,10 +1290,6 @@
             color: var(--gray-800);
             font-size: 0.95rem;
             user-select: none;
-            transition: background 0.2s;
-        }
-        .faq-q:hover {
-            background: var(--gray-50);
         }
         .faq-q::after {
             content: '+';
@@ -1757,8 +1745,7 @@
             <span class="section-label">FAQ</span>
             <h2>Questions parents ask</h2>
 
-            <div class="faq-list">
-                <div class="faq-item">
+            <div class="faq-item">
                     <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How much does Readee cost?</div>
                     <div class="faq-a"><div class="faq-a-inner"><p>Readee offers a free plan with the diagnostic assessment and your first 2 lessons per level. Readee+ is $9.99/month (or $79.99/year) for the full lesson library, up to 5 children, and detailed progress reports. Start with a free 7-day trial — no credit card required.</p></div></div>
                 </div>
@@ -1782,7 +1769,6 @@
                     <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I use Readee in my classroom?</div>
                     <div class="faq-a"><div class="faq-a-inner"><p>Yes! Readee works great during centers, morning work, independent practice, or as structured homework. You'll get a teacher dashboard to track every student's progress. Setup takes under 5 minutes. Special educator pricing is available.</p></div></div>
                 </div>
-            </div>
         </div>
     </section>
 
