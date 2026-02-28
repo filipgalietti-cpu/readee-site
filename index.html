@@ -547,15 +547,8 @@
             font-size: clamp(1.8rem, 3vw, 2.6rem);
             font-weight: 800;
             color: var(--indigo-900);
-            margin-bottom: 16px;
+            margin-bottom: 40px;
             letter-spacing: -0.5px;
-        }
-        .method > .method-inner > p {
-            font-size: 1.1rem;
-            color: var(--gray-500);
-            max-width: 550px;
-            margin: 0 auto 60px;
-            line-height: 1.7;
         }
         .steps {
             display: grid;
@@ -565,19 +558,25 @@
         }
         .step-card {
             background: var(--white);
-            border-radius: var(--radius);
-            padding: 32px 28px;
+            border-radius: var(--radius-lg);
+            padding: 40px 32px;
             border: 1px solid var(--gray-200);
             transition: all 0.3s;
             position: relative;
         }
         .step-card:hover {
-            border-color: var(--indigo-300);
-            box-shadow: 0 8px 30px rgba(99,102,241,0.1);
             transform: translateY(-4px);
         }
+        .step-card-dark {
+            background: var(--indigo-900);
+            border: 2px solid var(--indigo-700);
+            box-shadow: 0 12px 48px rgba(30,27,75,0.2);
+        }
+        .step-card-dark:hover {
+            box-shadow: 0 16px 56px rgba(30,27,75,0.3);
+        }
         .step-num {
-            width: 40px; height: 40px;
+            width: 44px; height: 44px;
             border-radius: 50%;
             background: var(--indigo-100);
             color: var(--indigo-600);
@@ -589,16 +588,33 @@
             font-size: 1.1rem;
             margin-bottom: 20px;
         }
+        .step-card-dark .step-num {
+            background: rgba(251,191,36,0.15);
+            color: #fbbf24;
+        }
         .step-card h3 {
             font-size: 1.1rem;
             color: var(--indigo-900);
             margin-bottom: 10px;
             font-weight: 700;
         }
+        .step-card-dark h3 {
+            color: var(--white);
+            font-size: 1.25rem;
+        }
         .step-card p {
             font-size: 0.92rem;
             color: var(--gray-500);
             line-height: 1.6;
+        }
+        .step-card-dark p {
+            color: rgba(255,255,255,0.65);
+            font-size: 1.05rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .step-card-dark strong {
+            color: var(--white);
         }
         .step-tag {
             display: inline-block;
@@ -1517,13 +1533,12 @@
     <section class="method reveal" id="curriculum">
         <div class="method-inner">
             <span class="section-label">For Kids</span>
-            <h2>The 3D World of Readee</h2>
-            <p>Explore a vibrant 3D universe with Readee on every reading quest!</p>
+            <h2>The World of Readee</h2>
             <div class="steps">
-                <div class="step-card" style="grid-column: span 3; text-align: center;">
+                <div class="step-card step-card-dark" style="grid-column: span 3; text-align: center;">
                     <div class="step-num">★</div>
                     <h3>Curriculum Proof</h3>
-                    <p>Over 1,300 lessons mapped to 896 ELA standards—built by experts for every learner.</p>
+                    <p>Over <strong>1,300 lessons</strong> mapped to <strong>896 ELA standards</strong>—built by experts for every learner.</p>
                 </div>
             </div>
         </div>
