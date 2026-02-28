@@ -573,6 +573,25 @@
         .hiw-step {
             position: relative;
             z-index: 1;
+            padding: 28px 20px 32px;
+            border-radius: var(--radius-lg);
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+        .hiw-step:hover {
+            background: var(--white);
+            box-shadow: 0 12px 40px rgba(30,27,75,0.08);
+            transform: translateY(-6px);
+        }
+        .hiw-step:hover .hiw-icon-inner {
+            border-color: transparent;
+        }
+        .hiw-step:nth-child(1):hover .hiw-icon-inner { box-shadow: 0 8px 32px rgba(99,102,241,0.2); border-color: var(--indigo-300); }
+        .hiw-step:nth-child(2):hover .hiw-icon-inner { box-shadow: 0 8px 32px rgba(139,92,246,0.2); border-color: #c4b5fd; }
+        .hiw-step:nth-child(3):hover .hiw-icon-inner { box-shadow: 0 8px 32px rgba(16,185,129,0.2); border-color: var(--emerald-400); }
+        .hiw-step:hover .hiw-icon-bg {
+            opacity: 0.18;
+            transform: rotate(-6deg) scale(1.05);
         }
         .hiw-icon-wrap {
             width: 160px;
@@ -589,6 +608,7 @@
             border-radius: 32px;
             transform: rotate(-6deg);
             opacity: 0.12;
+            transition: all 0.3s ease;
         }
         .hiw-step:nth-child(1) .hiw-icon-bg { background: var(--indigo-500); }
         .hiw-step:nth-child(2) .hiw-icon-bg { background: var(--violet-500); }
@@ -604,6 +624,7 @@
             background: var(--white);
             border: 2px solid var(--gray-200);
             box-shadow: 0 8px 32px rgba(30,27,75,0.08);
+            transition: all 0.3s ease;
         }
         .hiw-icon-inner svg {
             width: 52px;
