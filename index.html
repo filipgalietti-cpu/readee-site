@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>READEE — Learn to Read, One Lesson at a Time</title>
     <meta name="description" content="Evidence-based reading program for children ages 5-10. Build phonics, vocabulary, and comprehension skills in just 10 minutes a day. Start your free trial.">
     <link rel="icon" href="favicon.ico" sizes="16x16 32x32" type="image/x-icon">
@@ -1461,14 +1461,18 @@
             .how-it-works-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
             .footer-top { grid-template-columns: 1fr 1fr; }
         }
+        @media (max-width: 768px) {
+            .hero-inner { padding: 100px 20px 56px; gap: 32px; }
+            .hero-visual { max-width: 400px; }
+        }
         @media (max-width: 640px) {
             .nav-links { display: none; }
             .mobile-toggle { display: block; }
-            .hero-inner { padding: 100px 20px 48px; }
+            .hero-inner { padding: 90px 16px 40px; }
             .hero h1 { font-size: 2rem; }
             .hero-sub { font-size: 1rem; }
             .hero-trust-items { flex-wrap: wrap; justify-content: center; gap: 12px; }
-            .hero-visual { max-width: 340px; }
+            .hero-visual { max-width: 100%; }
             .app-preview { padding: 20px; }
             .benefits-grid { grid-template-columns: 1fr; }
             .pricing-grid { grid-template-columns: 1fr; }

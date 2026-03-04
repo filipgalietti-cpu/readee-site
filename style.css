@@ -75,7 +75,7 @@ body {
   color: var(--text-dark);
   background-color: var(--bg-page);
   margin: 0;
-  padding: 0;
+  padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom) 0;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
@@ -313,6 +313,21 @@ h3 {
 
   .celebration-logo {
     max-width: 150px;
+  }
+}
+
+/* Mobile padding reduction */
+@media (max-width: 640px) {
+  .container {
+    width: 92%;
+  }
+
+  .header-container {
+    padding: 10px 16px;
+  }
+
+  .header-logo {
+    max-height: 56px;
   }
 }
 
