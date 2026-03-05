@@ -1,294 +1,216 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>FAQ - READEE</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="header-container">
-        <a href="index.html" class="logo-link">
-          <img src="assets/readee-logo.png" alt="READEE logo" class="header-logo" />
-        </a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>FAQ — Readee — Unlock Reading</title>
+    <meta name="description" content="Frequently asked questions about Readee — pricing, ages, lesson length, classroom use, and more.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root{--indigo-900:#1e1b4b;--indigo-800:#272463;--indigo-700:#312e81;--indigo-600:#4338ca;--indigo-500:#6366f1;--indigo-400:#818cf8;--indigo-300:#a5b4fc;--indigo-200:#c7d2fe;--indigo-100:#e0e7ff;--indigo-50:#eef2ff;--white:#ffffff;--gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;--gray-700:#374151;--gray-800:#1f2937;--gray-900:#111827;--radius:16px;--radius-sm:10px;--radius-lg:24px}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Nunito',-apple-system,sans-serif;color:var(--gray-800);background:var(--white);-webkit-font-smoothing:antialiased}
+        h1,h2,h3,h4,h5{font-family:'Baloo 2',cursive}
 
-        <!-- Desktop Navigation -->
-        <nav class="desktop-nav">
-          <div class="nav-item dropdown">
-            <a href="#" class="nav-link">Programs <span class="dropdown-arrow">▾</span></a>
-            <div class="dropdown-menu">
-              <a href="index.html#why-readee" class="dropdown-item">Why Readee?</a>
-              <a href="index.html#how-it-works" class="dropdown-item">How It Works</a>
-              <a href="engaging-effective.html" class="dropdown-item">Engaging & Effective</a>
+        /* NAV */
+        nav{position:sticky;top:0;z-index:100;padding:16px 24px;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.06)}
+        .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+        .nav-logo{text-decoration:none;display:flex;align-items:center}
+        .nav-logo img{width:150px;height:auto}
+        .nav-links{display:flex;align-items:center;gap:32px}
+        .nav-links a{text-decoration:none;color:var(--gray-600);font-size:.95rem;font-weight:500;padding:6px 12px;border-radius:8px;transition:color .2s,background .2s}
+        .nav-links a:hover{color:var(--indigo-600);background:var(--indigo-50)}
+        .nav-login{background:var(--indigo-700)!important;color:var(--white)!important;padding:8px 20px!important;border-radius:50px!important;font-weight:600!important;transition:background .2s,transform .2s!important}
+        .nav-login:hover{background:var(--indigo-800)!important;transform:translateY(-1px)!important}
+        .mobile-toggle{display:none;background:none;border:none;cursor:pointer}
+        .mobile-nav{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(255,255,255,0.98);z-index:200;padding:80px 32px;flex-direction:column;gap:24px}
+        .mobile-nav.open{display:flex}
+        .mobile-close{position:absolute;top:20px;right:24px;background:none;border:none;font-size:2rem;color:var(--gray-600);cursor:pointer}
+        .mobile-nav a{font-size:1.2rem;color:var(--gray-700);text-decoration:none;font-weight:600}
+
+        /* HERO */
+        .page-hero{padding:80px 24px 60px;text-align:center;background:linear-gradient(160deg,var(--indigo-50) 0%,var(--white) 50%,#f5f0ff 100%)}
+        .page-hero h1{font-size:clamp(2rem,4vw,3rem);font-weight:800;color:var(--indigo-900);letter-spacing:-1px;margin-bottom:16px}
+        .page-hero p{font-size:1.15rem;color:var(--gray-500);max-width:600px;margin:0 auto;line-height:1.7}
+        .page-hero a{color:var(--indigo-600);text-decoration:none;font-weight:600}
+        .page-hero a:hover{text-decoration:underline}
+
+        /* FAQ */
+        .content{max-width:700px;margin:0 auto;padding:60px 24px 80px}
+        .faq-section{margin-bottom:40px;opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+        .faq-section.visible{opacity:1;transform:translateY(0)}
+        .faq-section h2{font-size:1.3rem;font-weight:800;color:var(--indigo-900);margin-bottom:16px;letter-spacing:-.3px}
+
+        .faq-item{background:var(--white);border-radius:var(--radius-sm);margin-bottom:12px;border:1px solid var(--gray-200);transition:border-color .2s}
+        .faq-item:hover{border-color:var(--indigo-300)}
+        .faq-q{padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;color:var(--gray-800);font-size:.95rem;user-select:none}
+        .faq-q::after{content:'+';font-size:1.3rem;color:var(--indigo-400);font-weight:300;transition:transform .3s;flex-shrink:0;margin-left:16px}
+        .faq-item.open .faq-q::after{transform:rotate(45deg)}
+        .faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
+        .faq-item.open .faq-a{grid-template-rows:1fr}
+        .faq-a-inner{overflow:hidden}
+        .faq-a p{font-size:.9rem;color:var(--gray-500);line-height:1.65;padding:0 24px 20px}
+        .faq-a a{color:var(--indigo-600);text-decoration:none;font-weight:600}
+        .faq-a a:hover{text-decoration:underline}
+
+        .contact-box{background:linear-gradient(135deg,var(--indigo-50),#f5f0ff);border:1px solid var(--indigo-200);border-radius:var(--radius-lg);padding:40px;text-align:center;opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+        .contact-box.visible{opacity:1;transform:translateY(0)}
+        .contact-box h2{font-size:1.3rem;color:var(--indigo-900);margin-bottom:10px}
+        .contact-box p{color:var(--gray-600);font-size:.95rem;line-height:1.7}
+        .contact-box a{color:var(--indigo-600);text-decoration:none;font-weight:700}
+        .contact-box a:hover{text-decoration:underline}
+
+        /* FOOTER */
+        footer{background:var(--indigo-900);padding:60px 24px 30px;color:var(--indigo-300)}
+        .footer-inner{max-width:1000px;margin:0 auto}
+        .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+        .footer-wordmark{font-family:'Baloo 2',cursive;font-weight:800;font-size:1.35rem;color:#ffffff;text-decoration:none;letter-spacing:-0.5px}
+        .footer-wordmark span{color:#a5b4fc}
+        .footer-brand p{margin-top:12px;font-size:.9rem;line-height:1.6;color:var(--indigo-300)}
+        .footer-col h4{color:var(--white);font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px}
+        .footer-col a{display:block;color:var(--indigo-300);text-decoration:none;font-size:.9rem;margin-bottom:10px;transition:color .2s}
+        .footer-col a:hover{color:var(--white)}
+        .footer-bottom{border-top:1px solid var(--indigo-800);padding-top:24px;display:flex;justify-content:space-between;font-size:.8rem;color:var(--indigo-400)}
+        .footer-bottom a{color:var(--indigo-400);text-decoration:none;margin-left:20px;transition:color .2s}
+        .footer-bottom a:hover{color:var(--white)}
+
+        @media(max-width:900px){.footer-top{grid-template-columns:1fr 1fr}}
+        @media(max-width:640px){.nav-links{display:none}.mobile-toggle{display:block}.footer-top{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:12px;text-align:center}.footer-bottom div{margin:0}}
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo"><img src="assets/readee-logo.png" alt="Readee - Learn to Read"></a>
+            <div class="nav-links">
+                <a href="index.html#how-it-works">How It Works</a>
+                <a href="index.html#why-readee">Why Readee</a>
+                <a href="teachers.html">For Teachers</a>
+                <a href="https://learn.readee.app/login" class="nav-login">Log In</a>
             </div>
-          </div>
-
-          <div class="nav-item dropdown">
-            <a href="#" class="nav-link">For Educators <span class="dropdown-arrow">▾</span></a>
-            <div class="dropdown-menu">
-              <a href="supporting-classroom.html" class="dropdown-item">Classroom Support</a>
-              <a href="standards.html" class="dropdown-item">ELA Standards</a>
-              <a href="assessment.html" class="dropdown-item">Assessment Tools</a>
-            </div>
-          </div>
-
-          <div class="nav-item dropdown">
-            <a href="#" class="nav-link">Resources <span class="dropdown-arrow">▾</span></a>
-            <div class="dropdown-menu">
-              <a href="index.html#readee-process" class="dropdown-item">Reading Process</a>
-              <a href="standards.html" class="dropdown-item">Learning Standards</a>
-            </div>
-          </div>
-
-          <div class="nav-item">
-            <a href="nonprofit-literacy.html" class="nav-link">About</a>
-          </div>
-
-          <div class="nav-item">
-            <a href="index.html#get-started" class="nav-link">Success Stories</a>
-          </div>
-
-          <div class="nav-item">
-            <a href="questionnaire.html" class="nav-link-cta">Get Started</a>
-          </div>
-        </nav>
-
-        <!-- Mobile Menu Toggle -->
-        <button id="menuToggle" class="menu-toggle" aria-label="Toggle menu">
-          <span class="menu-text">Menu</span>
-          <span class="hamburger-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-        </button>
-      </div>
-
-      <!-- Mobile Navigation -->
-      <nav id="navMenu" class="mobile-nav">
-        <a href="login.html" class="mobile-nav-link mobile-nav-login">
-          <span class="login-icon">🔐</span>
-          <span class="login-text">Login to App</span>
-          <span class="login-arrow">→</span>
-        </a>
-
-        <div class="mobile-nav-section">
-          <div class="mobile-nav-header">Programs</div>
-          <a href="index.html#why-readee" class="mobile-nav-link">Why Readee?</a>
-          <a href="index.html#how-it-works" class="mobile-nav-link">How It Works</a>
-          <a href="engaging-effective.html" class="mobile-nav-link">Engaging & Effective</a>
+            <button class="mobile-toggle" onclick="document.getElementById('mobileNav').classList.add('open')" aria-label="Menu">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            </button>
         </div>
-
-        <div class="mobile-nav-section">
-          <div class="mobile-nav-header">For Educators</div>
-          <a href="supporting-classroom.html" class="mobile-nav-link">Classroom Support</a>
-          <a href="standards.html" class="mobile-nav-link">ELA Standards</a>
-          <a href="assessment.html" class="mobile-nav-link">Assessment Tools</a>
-        </div>
-
-        <div class="mobile-nav-section">
-          <div class="mobile-nav-header">Resources</div>
-          <a href="index.html#readee-process" class="mobile-nav-link">Reading Process</a>
-          <a href="standards.html" class="mobile-nav-link">Learning Standards</a>
-        </div>
-
-        <a href="nonprofit-literacy.html" class="mobile-nav-link">About</a>
-        <a href="index.html#get-started" class="mobile-nav-link">Success Stories</a>
-        <a href="questionnaire.html" class="mobile-nav-link mobile-nav-cta">Get Started</a>
-      </nav>
-    </header>
-    <div id="hero">
-      <h1>❓ FAQ</h1>
-      <p>Answers to your most common questions about READEE</p>
+    </nav>
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-close" onclick="this.parentElement.classList.remove('open')">&times;</button>
+        <a href="index.html">Home</a>
+        <a href="index.html#how-it-works" onclick="this.parentElement.classList.remove('open')">How It Works</a>
+        <a href="teachers.html">For Teachers</a>
+        <a href="https://learn.readee.app/login">Log In</a>
     </div>
-    <section id="info-content">
-      <div class="container">
-        <div class="info-card">
-          <h2>Frequently Asked Questions</h2>
-          <p>
-            Find answers to common questions about READEE below. Can't find what you're looking for?
-            <a href="contact-us.html">Contact us</a> for personalized support.
-          </p>
+
+    <div class="page-hero">
+        <h1>Questions Parents Ask</h1>
+        <p>Can't find what you're looking for? <a href="contact-us.html">Contact us</a> and we'll help.</p>
+    </div>
+
+    <div class="content">
+        <div class="faq-section">
+            <h2>Getting Started</h2>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How much does Readee cost?</div>
+                <div class="faq-a"><div class="faq-a-inner"><p>Readee offers a free plan with the diagnostic assessment and your first 2 lessons per level. Readee+ is $9.99/month (or $79.99/year) for the full lesson library, up to 5 children, and detailed progress reports. Start with a free 7-day trial — no credit card required.</p></div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What ages is Readee designed for?</div>
+                <div class="faq-a"><div class="faq-a-inner"><p>Readee is built for children ages 5–10 (K through 4th grade). Lessons adapt to your child's reading level.</p></div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How do I get started?</div>
+                <div class="faq-a"><div class="faq-a-inner"><p>Take the free 2-minute diagnostic assessment to find your child's reading level, then create an account to start lessons right away.</p></div></div>
+            </div>
         </div>
 
-        <div class="info-card">
-          <h2>Getting Started</h2>
-          <div class="faq-simple">
-            <p><strong>Q: How do I get started with READEE?</strong></p>
-            <p>
-              A: Simply take our <a href="assessment.html">2-minute assessment</a> to determine your
-              child's reading level, then create a free account to begin accessing lessons.
-            </p>
-
-            <p><strong>Q: Is READEE really free?</strong></p>
-            <p>
-              A: Yes! READEE is a nonprofit literacy program, and our basic program is completely
-              free for families and educators.
-            </p>
-
-            <p><strong>Q: What ages is READEE designed for?</strong></p>
-            <p>A: READEE is designed for children ages 5-10, typically K through 4th grade.</p>
-          </div>
+        <div class="faq-section">
+            <h2>Using Readee</h2>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How long does each lesson take?</div>
+                <div class="faq-a"><div class="faq-a-inner"><p>About 10 minutes. Short enough to fit into any routine, long enough to build real skills. Consistency matters more than marathon sessions.</p></div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is this good for kids with autism or learning differences?</div>
+                <div class="faq-a"><div class="faq-a-inner"><p>Absolutely. Readee was designed with neurodiverse learners in mind. The structured, predictable format and calm visual design help children on the spectrum feel comfortable and focused.</p></div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How is this different from other reading apps?</div>
+                <div class="faq-a"><div class="faq-a-inner"><p>Most reading apps are games that don't build real skills. Readee follows the Science of Reading — the same evidence-based approach used by the best literacy programs in schools.</p></div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do I need to sit with my child during lessons?</div>
+                <div class="faq-a"><div class="faq-a-inner"><p>Initially, yes. As your child becomes familiar with the program and more independent, they can work more on their own.</p></div></div>
+            </div>
         </div>
 
-        <div class="info-card">
-          <h2>Using READEE</h2>
-          <div class="faq-simple">
-            <p><strong>Q: How long should my child use READEE each day?</strong></p>
-            <p>
-              A: We recommend 10-15 minute sessions, 3-5 times per week. Consistency is more
-              important than length.
-            </p>
-
-            <p><strong>Q: Can READEE replace my child's reading instruction at school?</strong></p>
-            <p>
-              A: No. READEE is designed to supplement, not replace, classroom instruction. It works
-              best alongside your child's school reading program.
-            </p>
-
-            <p><strong>Q: What if my child finds it too difficult or too easy?</strong></p>
-            <p>
-              A: Our program adapts to your child's level. If lessons seem consistently too hard or
-              too easy, retake the assessment or contact our support team.
-            </p>
-
-            <p><strong>Q: Do I need to sit with my child during lessons?</strong></p>
-            <p>
-              A: Initially, yes. As your child becomes familiar with the program and more
-              independent, they can work more on their own.
-            </p>
-          </div>
+        <div class="faq-section">
+            <h2>For Educators</h2>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I use Readee in my classroom?</div>
+                <div class="faq-a"><div class="faq-a-inner"><p>Yes! Readee works great during centers, morning work, independent practice, or as structured homework. You'll get a teacher dashboard to track every student's progress. Setup takes under 5 minutes. Special educator pricing is available.</p></div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is Readee aligned with state standards?</div>
+                <div class="faq-a"><div class="faq-a-inner"><p>Yes! Our curriculum is aligned with Common Core ELA standards and most state reading standards.</p></div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can multiple children use one account?</div>
+                <div class="faq-a"><div class="faq-a-inner"><p>Yes! You can create separate profiles for each child within one account to track their individual progress. Readee+ supports up to 5 children.</p></div></div>
+            </div>
         </div>
 
-        <div class="info-card">
-          <h2>Technical Questions</h2>
-          <div class="faq-simple">
-            <p><strong>Q: What devices does READEE work on?</strong></p>
-            <p>
-              A: READEE works on computers, tablets, and smartphones with internet access and a
-              modern web browser.
-            </p>
-
-            <p><strong>Q: Do we need headphones?</strong></p>
-            <p>
-              A: Headphones are helpful but not required. They can help minimize distractions and
-              improve focus.
-            </p>
-
-            <p><strong>Q: Can multiple children use one account?</strong></p>
-            <p>
-              A: Yes! You can create separate profiles for each child within one account to track
-              their individual progress.
-            </p>
-          </div>
+        <div class="contact-box">
+            <h2>Still have questions?</h2>
+            <p>Reach out at <a href="mailto:hello@readee.app">hello@readee.app</a> and we'll get back to you within 1–2 business days.</p>
         </div>
-
-        <div class="info-card">
-          <h2>For Educators</h2>
-          <div class="faq-simple">
-            <p><strong>Q: Can I use READEE with my whole class?</strong></p>
-            <p>
-              A: Absolutely! READEE offers classroom management tools for teachers. Contact us for
-              information about classroom accounts.
-            </p>
-
-            <p><strong>Q: Is READEE aligned with state standards?</strong></p>
-            <p>
-              A: Yes! Our curriculum is aligned with Common Core ELA standards and most state
-              reading standards. See our <a href="standards.html">standards page</a> for details.
-            </p>
-
-            <p><strong>Q: Do you offer professional development for teachers?</strong></p>
-            <p>
-              A: Yes! We offer various
-              <a href="professional-development.html">professional learning opportunities</a> for
-              educators.
-            </p>
-          </div>
-        </div>
-        <div class="button-container">
-          <a href="index.html" class="get-started-button">Back to Home</a>
-          <a href="questionnaire.html" class="get-started-button">Get Started</a>
-        </div>
-      </div>
-    </section>
+    </div>
 
     <footer>
-      <div class="footer-container">
-        <div class="footer-grid">
-          <!-- Learning Programs -->
-          <div class="footer-section">
-            <h3>Learning Programs</h3>
-            <ul>
-              <li><a href="nonprofit-literacy.html">Reading Fundamentals</a></li>
-              <li><a href="engaging-effective.html">Phonics & Vocabulary</a></li>
-              <li><a href="supporting-classroom.html">Comprehension Skills</a></li>
-              <li><a href="standards.html">ELA Standards Alignment</a></li>
-              <li><a href="assessment.html">Student Assessment</a></li>
-              <li><a href="progress-tracking.html">Progress Tracking</a></li>
-            </ul>
-          </div>
-
-          <!-- For Educators -->
-          <div class="footer-section">
-            <h3>For Educators</h3>
-            <ul>
-              <li><a href="teacher-resources.html">Teacher Resources</a></li>
-              <li><a href="classroom-tools.html">Classroom Tools</a></li>
-              <li><a href="lesson-plans.html">Lesson Plans</a></li>
-              <li><a href="professional-development.html">Professional Development</a></li>
-              <li><a href="educator-community.html">Educator Community</a></li>
-              <li><a href="training-materials.html">Training Materials</a></li>
-            </ul>
-          </div>
-
-          <!-- Resources -->
-          <div class="footer-section">
-            <h3>Resources</h3>
-            <ul>
-              <li><a href="get-started-guide.html">Get Started Guide</a></li>
-              <li><a href="parent-handbook.html">Parent Handbook</a></li>
-              <li><a href="activity-library.html">Activity Library</a></li>
-              <li><a href="reading-tips-blog.html">Reading Tips Blog</a></li>
-              <li><a href="success-stories.html">Success Stories</a></li>
-              <li><a href="faq.html">FAQ</a></li>
-            </ul>
-          </div>
-
-          <!-- About READEE -->
-          <div class="footer-section">
-            <h3>About READEE</h3>
-            <ul>
-              <li><a href="our-mission.html">Our Mission</a></li>
-              <li><a href="how-it-works.html">How It Works</a></li>
-              <li><a href="research-evidence.html">Research & Evidence</a></li>
-              <li><a href="partner-schools.html">Partner Schools</a></li>
-              <li><a href="contact-us.html">Contact Us</a></li>
-              <li><a href="careers.html">Careers</a></li>
-            </ul>
-          </div>
-
-          <!-- Support -->
-          <div class="footer-section">
-            <h3>Support</h3>
-            <ul>
-              <li><a href="help-center.html">Help Center</a></li>
-              <li><a href="technical-support.html">Technical Support</a></li>
-              <li><a href="accessibility.html">Accessibility</a></li>
-              <li><a href="system-status.html">System Status</a></li>
-              <li><a href="privacy-policy.html">Privacy Policy</a></li>
-              <li><a href="terms-of-service.html">Terms of Service</a></li>
-            </ul>
-          </div>
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-wordmark">read<span>ee</span></a>
+                    <p>Helping every child become a confident reader, ages 5–10.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Programs</h4>
+                    <a href="about.html">About</a>
+                    <a href="teachers.html">For Educators</a>
+                    <a href="team.html">Meet the Team</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <a href="contact-us.html">Contact Us</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Get Started</h4>
+                    <a href="https://learn.readee.app/signup">Sign Up</a>
+                    <a href="https://learn.readee.app/login">Log In</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 READEE. All rights reserved.</span>
+                <div>
+                    <a href="privacy-policy.html">Privacy</a>
+                    <a href="terms-of-service.html">Terms</a>
+                </div>
+            </div>
         </div>
-
-        <div class="footer-bottom">
-          <p>&copy; 2026 READEE. Building stronger readers, one student at a time.</p>
-        </div>
-      </div>
     </footer>
 
-    <script src="app.js"></script>
-  </body>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (!e.isIntersecting) return;
+                e.target.classList.add('visible');
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.faq-section, .contact-box').forEach(el => observer.observe(el));
+    </script>
+
+</body>
 </html>
