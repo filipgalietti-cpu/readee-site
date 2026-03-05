@@ -489,9 +489,15 @@
             border: 1px solid var(--gray-200);
             border-radius: var(--radius);
             padding: 28px 24px;
-            transition: all 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.3s, box-shadow 0.3s;
         }
-        .benefit-card:hover {
+        .benefit-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .benefit-card.visible:hover {
             border-color: var(--indigo-300);
             box-shadow: 0 8px 30px rgba(99,102,241,0.08);
             transform: translateY(-3px);
@@ -1482,6 +1488,13 @@
         }
         .stat-item {
             text-align: center;
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .stat-item.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         .stat-number {
             font-family: 'Baloo 2', cursive;
@@ -1957,7 +1970,6 @@
                 <a href="#why-readee">Why Readee</a>
                 <a href="teachers.html">For Teachers</a>
                 <a href="https://learn.readee.app/login">Log In</a>
-                <a href="https://learn.readee.app/signup" class="nav-cta">Get Started Free</a>
             </div>
             <button class="mobile-toggle" onclick="document.getElementById('mobileNav').classList.add('open')" aria-label="Menu">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
@@ -2016,19 +2028,19 @@
     <div class="stat-bar">
         <div class="stat-bar-grid">
             <div class="stat-item">
-                <div class="stat-number"><span class="stat-emoji"><svg viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><path d="M8 7h6"/><path d="M8 11h8"/></svg></span>896</div>
+                <div class="stat-number"><span class="stat-emoji"><svg viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><path d="M8 7h6"/><path d="M8 11h8"/></svg></span><span class="count-up" data-target="896">0</span></div>
                 <div class="stat-label">Practice Questions</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number"><span class="stat-emoji"><svg viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg></span>1,792</div>
+                <div class="stat-number"><span class="stat-emoji"><svg viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg></span><span class="count-up" data-target="1792" data-suffix="" data-comma="true">0</span></div>
                 <div class="stat-label">Audio Files</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number"><span class="stat-emoji"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 4 3 6 3s6-1 6-3v-5"/></svg></span>5</div>
+                <div class="stat-number"><span class="stat-emoji"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 4 3 6 3s6-1 6-3v-5"/></svg></span><span class="count-up" data-target="5">0</span></div>
                 <div class="stat-label">Grade Levels (K–4th)</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number"><span class="stat-emoji"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>10 min</div>
+                <div class="stat-number"><span class="stat-emoji"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><span class="count-up" data-target="10" data-suffix=" min">0</span></div>
                 <div class="stat-label">Daily Lessons</div>
             </div>
         </div>
@@ -2037,7 +2049,6 @@
     <!-- PROBLEM / SOLUTION -->
     <section class="problem reveal" id="why-readee">
         <div class="problem-inner">
-            <span class="section-label">Value Props</span>
             <h2>Why Readee?</h2>
             <div class="benefits-grid" style="grid-template-columns: repeat(3, 1fr);">
                 <div class="benefit-card">
@@ -2062,7 +2073,6 @@
     <!-- HOW IT WORKS -->
     <section class="method reveal" id="how-it-works">
         <div class="method-inner">
-            <span class="section-label">How It Works</span>
             <h2>3 steps to confident reading</h2>
             <div class="hiw-video-steps">
                 <!-- Step 1 -->
@@ -2108,7 +2118,6 @@
     <!-- TESTIMONIALS -->
     <section class="proof reveal" style="position: relative; overflow: hidden;">
         <div class="proof-inner">
-            <span class="section-label">Social Proof</span>
             <h2>What Parents & Teachers Say</h2>
             <div class="testimonials">
                 <div class="testimonial-card">
@@ -2148,20 +2157,6 @@
         </div>
     </section>
 
-    <!-- EARLY ACCESS -->
-    <section class="proof reveal">
-        <div class="proof-inner">
-            <span class="section-label">Early Access</span>
-            <h2>Give your child a head start with Readee</h2>
-            <form class="early-access-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Thanks! We\'ll be in touch.'; this.querySelector('button').disabled=true; this.querySelector('input').disabled=true;">
-                <div class="early-access-row">
-                    <input type="email" placeholder="Enter your email" required class="early-access-input" />
-                    <button type="submit" class="btn-primary early-access-btn">Join Early Access</button>
-                </div>
-                <p class="early-access-note">Free diagnostic assessment included. No credit card required.</p>
-            </form>
-        </div>
-    </section>
 
 
 
@@ -2170,7 +2165,6 @@
     <!-- PRICING -->
     <section class="pricing reveal" id="pricing">
         <div class="pricing-inner">
-            <span class="section-label">Pricing</span>
             <h2>Simple, transparent pricing</h2>
             <p class="pricing-sub">Start free, upgrade when you're ready.</p>
             <div class="pricing-grid">
@@ -2207,7 +2201,6 @@
     <!-- FAQ -->
     <section class="faq reveal">
         <div class="faq-inner">
-            <span class="section-label">FAQ</span>
             <h2>Questions parents ask</h2>
 
             <div class="faq-item">
@@ -2237,16 +2230,6 @@
         </div>
     </section>
 
-    <!-- FINAL CTA -->
-    <section class="final-cta reveal">
-        <div class="final-cta-inner">
-            <img src="assets/readee-logo.png" alt="Readee bunny" class="bunny-cta">
-            <h2>Every strong reader started somewhere</h2>
-            <p>Give your child the tools to build confidence, one lesson at a time. Setup takes 2 minutes.</p>
-            <a href="https://learn.readee.app/signup" class="btn-primary">Get Started Free →</a>
-            <p class="final-trust">Free plan available · No spam · Based on the Science of Reading</p>
-        </div>
-    </section>
 
     <!-- FOOTER -->
     <footer>
@@ -2290,7 +2273,17 @@
 
         // Reveal on scroll
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+            entries.forEach(e => {
+                if (!e.isIntersecting) return;
+                e.target.classList.add('visible');
+                // Stagger benefit cards when their parent section reveals
+                const cards = e.target.querySelectorAll('.benefit-card');
+                if (cards.length) {
+                    cards.forEach((card, i) => {
+                        setTimeout(() => card.classList.add('visible'), 300 + i * 150);
+                    });
+                }
+            });
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
@@ -2317,6 +2310,36 @@
             });
         }, { threshold: 0.4 });
         document.querySelectorAll('.play-on-scroll').forEach(v => videoObserver.observe(v));
+
+        // Count-up animation for stat numbers
+        const statObserver = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (!e.isIntersecting) return;
+                statObserver.unobserve(e.target);
+                const items = e.target.querySelectorAll('.stat-item');
+                items.forEach((item, i) => {
+                    setTimeout(() => item.classList.add('visible'), i * 120);
+                });
+                const spans = e.target.querySelectorAll('.count-up');
+                spans.forEach(span => {
+                    const target = parseInt(span.dataset.target);
+                    const suffix = span.dataset.suffix || '';
+                    const useComma = span.dataset.comma === 'true';
+                    const duration = 1600;
+                    const start = performance.now();
+                    function tick(now) {
+                        const t = Math.min((now - start) / duration, 1);
+                        const eased = 1 - Math.pow(1 - t, 3);
+                        const val = Math.round(eased * target);
+                        span.textContent = (useComma ? val.toLocaleString() : val) + suffix;
+                        if (t < 1) requestAnimationFrame(tick);
+                    }
+                    requestAnimationFrame(tick);
+                });
+            });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('.stat-bar').forEach(el => statObserver.observe(el));
+
     </script>
 
 </body>
