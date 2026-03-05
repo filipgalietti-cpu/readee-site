@@ -14,43 +14,53 @@
         body{font-family:'DM Sans',-apple-system,sans-serif;color:var(--gray-800);background:var(--white);-webkit-font-smoothing:antialiased}
         h1,h2,h3,h4,h5{font-family:'Bricolage Grotesque',serif}
 
+        /* NAV */
         nav{position:sticky;top:0;z-index:100;padding:16px 24px;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.06)}
         .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
         .nav-logo{text-decoration:none;display:flex;align-items:center}
         .nav-logo img{width:150px;height:auto}
         .nav-links{display:flex;align-items:center;gap:32px}
-        .nav-links a{text-decoration:none;color:var(--gray-600);font-size:.95rem;font-weight:500;transition:color .2s}
-        .nav-links a:hover{color:var(--indigo-600)}
-        .nav-cta{background:var(--indigo-600)!important;color:var(--white)!important;padding:10px 22px!important;border-radius:50px!important;font-weight:600!important;transition:background .2s,transform .2s!important}
-        .nav-cta:hover{background:var(--indigo-700)!important;transform:translateY(-1px)!important}
+        .nav-links a{text-decoration:none;color:var(--gray-600);font-size:.95rem;font-weight:500;padding:6px 12px;border-radius:8px;transition:color .2s,background .2s}
+        .nav-links a:hover{color:var(--indigo-600);background:var(--indigo-50)}
+        .nav-login{background:var(--indigo-700)!important;color:var(--white)!important;padding:8px 20px!important;border-radius:50px!important;font-weight:600!important;transition:background .2s,transform .2s!important}
+        .nav-login:hover{background:var(--indigo-800)!important;transform:translateY(-1px)!important}
         .mobile-toggle{display:none;background:none;border:none;cursor:pointer}
         .mobile-nav{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(255,255,255,0.98);z-index:200;padding:80px 32px;flex-direction:column;gap:24px}
         .mobile-nav.open{display:flex}
         .mobile-close{position:absolute;top:20px;right:24px;background:none;border:none;font-size:2rem;color:var(--gray-600);cursor:pointer}
         .mobile-nav a{font-size:1.2rem;color:var(--gray-700);text-decoration:none;font-weight:600}
 
+        /* HERO */
         .page-hero{padding:80px 24px 60px;text-align:center;background:linear-gradient(160deg,var(--indigo-50) 0%,var(--white) 50%,#f5f0ff 100%)}
         .page-hero h1{font-size:clamp(2rem,4vw,3rem);font-weight:800;color:var(--indigo-900);letter-spacing:-1px;margin-bottom:16px}
         .page-hero p{font-size:1.15rem;color:var(--gray-500);max-width:600px;margin:0 auto;line-height:1.7}
 
+        /* CONTENT */
         .content{max-width:800px;margin:0 auto;padding:60px 24px 80px}
-        .section{margin-bottom:48px}
+        .section{margin-bottom:48px;opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+        .section.visible{opacity:1;transform:translateY(0)}
         .section h2{font-size:1.6rem;font-weight:800;color:var(--indigo-900);margin-bottom:16px;letter-spacing:-.5px}
         .section p{font-size:1rem;color:var(--gray-600);line-height:1.8;margin-bottom:16px}
 
+        /* PILLARS */
         .pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:24px}
-        .pillar{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius);padding:24px;transition:all .3s}
-        .pillar:hover{border-color:var(--indigo-300);box-shadow:0 4px 20px rgba(99,102,241,.08);transform:translateY(-2px)}
-        .pillar-icon{font-size:1.5rem;margin-bottom:10px}
+        .pillar{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius);padding:24px;opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease,border-color .3s,box-shadow .3s}
+        .pillar.visible{opacity:1;transform:translateY(0)}
+        .pillar.visible:hover{border-color:var(--indigo-300);box-shadow:0 4px 20px rgba(99,102,241,.08);transform:translateY(-2px)}
+        .pillar-icon{margin-bottom:10px;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:var(--indigo-50)}
+        .pillar-icon svg{width:24px;height:24px;stroke:var(--indigo-600);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
         .pillar h3{font-size:.95rem;color:var(--indigo-900);font-weight:700;margin-bottom:6px}
         .pillar p{font-size:.88rem;color:var(--gray-500);line-height:1.6;margin-bottom:0}
 
-        .highlight-box{background:linear-gradient(135deg,var(--indigo-50),#f5f0ff);border:1px solid var(--indigo-200);border-radius:var(--radius-lg);padding:40px;text-align:center;margin-top:48px}
+        /* HIGHLIGHT */
+        .highlight-box{background:linear-gradient(135deg,var(--indigo-50),#f5f0ff);border:1px solid var(--indigo-200);border-radius:var(--radius-lg);padding:40px;text-align:center;margin-top:48px;opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+        .highlight-box.visible{opacity:1;transform:translateY(0)}
         .highlight-box h2{font-size:1.4rem;color:var(--indigo-900);margin-bottom:12px}
         .highlight-box p{color:var(--gray-600);max-width:500px;margin:0 auto 24px;line-height:1.7}
         .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--indigo-600);color:var(--white);padding:14px 28px;border-radius:50px;text-decoration:none;font-weight:700;font-size:1rem;transition:all .25s;box-shadow:0 4px 16px rgba(99,102,241,.3)}
         .btn-primary:hover{background:var(--indigo-700);transform:translateY(-2px);box-shadow:0 6px 24px rgba(99,102,241,.4)}
 
+        /* FOOTER */
         footer{background:var(--indigo-900);padding:60px 24px 30px;color:var(--indigo-300)}
         .footer-inner{max-width:1000px;margin:0 auto}
         .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
@@ -75,12 +85,12 @@
             <a href="index.html" class="nav-logo"><img src="assets/readee-logo.png" alt="Readee - Learn to Read"></a>
             <div class="nav-links">
                 <a href="index.html#how-it-works">How It Works</a>
+                <a href="index.html#why-readee">Why Readee</a>
                 <a href="teachers.html">For Teachers</a>
-                <a href="https://learn.readee.app/login">Log In</a>
-                <a href="https://learn.readee.app/signup" class="nav-cta">Get Started Free</a>
+                <a href="https://learn.readee.app/login" class="nav-login">Log In</a>
             </div>
             <button class="mobile-toggle" onclick="document.getElementById('mobileNav').classList.add('open')" aria-label="Menu">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
             </button>
         </div>
     </nav>
@@ -90,7 +100,6 @@
         <a href="index.html#how-it-works" onclick="this.parentElement.classList.remove('open')">How It Works</a>
         <a href="teachers.html">For Teachers</a>
         <a href="https://learn.readee.app/login">Log In</a>
-        <a href="https://learn.readee.app/signup">Get Started Free →</a>
     </div>
 
     <div class="page-hero">
@@ -110,27 +119,27 @@
             <p>The Science of Reading is a body of research spanning 50+ years that shows how the brain learns to read. It points to five essential pillars that every child needs. Readee weaves all five into every lesson.</p>
             <div class="pillars">
                 <div class="pillar">
-                    <div class="pillar-icon">🔤</div>
+                    <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></svg></div>
                     <h3>Systematic Phonics</h3>
                     <p>Learning the sounds letters make and how to blend them into words — the foundation of reading.</p>
                 </div>
                 <div class="pillar">
-                    <div class="pillar-icon">👂</div>
+                    <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
                     <h3>Phonemic Awareness</h3>
                     <p>Hearing and playing with the individual sounds in words, like rhyming and segmenting.</p>
                 </div>
                 <div class="pillar">
-                    <div class="pillar-icon">📖</div>
+                    <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><path d="M8 7h6"/><path d="M8 11h8"/></svg></div>
                     <h3>Fluency</h3>
                     <p>Reading smoothly so kids can focus on understanding, not just sounding out each word.</p>
                 </div>
                 <div class="pillar">
-                    <div class="pillar-icon">💬</div>
+                    <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
                     <h3>Vocabulary</h3>
                     <p>Building a rich word bank so new words in stories feel familiar and meaningful.</p>
                 </div>
                 <div class="pillar">
-                    <div class="pillar-icon">🧠</div>
+                    <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M12 2a8 8 0 0 0-8 8c0 3.4 2.1 6.3 5 7.4V20h6v-2.6c2.9-1.1 5-4 5-7.4a8 8 0 0 0-8-8z"/><path d="M12 2v4"/><line x1="10" y1="20" x2="14" y2="20"/><line x1="10" y1="22" x2="14" y2="22"/></svg></div>
                     <h3>Comprehension</h3>
                     <p>Understanding what they read — finding main ideas, making connections, and thinking critically.</p>
                 </div>
@@ -146,7 +155,7 @@
         <div class="highlight-box">
             <h2>Ready to see where your child starts?</h2>
             <p>A quick assessment finds their reading level, and we'll build a personalized lesson path from there.</p>
-            <a href="https://learn.readee.app/signup" class="btn-primary">Get Started Free →</a>
+            <a href="https://learn.readee.app/signup" class="btn-primary">Get Started Free</a>
         </div>
     </div>
 
@@ -161,10 +170,12 @@
                     <h4>Programs</h4>
                     <a href="about.html">About</a>
                     <a href="teachers.html">For Educators</a>
+                    <a href="team.html">Meet the Team</a>
                 </div>
                 <div class="footer-col">
                     <h4>Resources</h4>
                     <a href="contact-us.html">Contact Us</a>
+                    <a href="faq.html">FAQ</a>
                 </div>
                 <div class="footer-col">
                     <h4>Get Started</h4>
@@ -181,6 +192,20 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (!e.isIntersecting) return;
+                e.target.classList.add('visible');
+                const pillars = e.target.querySelectorAll('.pillar');
+                if (pillars.length) {
+                    pillars.forEach((p, i) => setTimeout(() => p.classList.add('visible'), i * 120));
+                }
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.section, .highlight-box').forEach(el => observer.observe(el));
+    </script>
 
 </body>
 </html>
