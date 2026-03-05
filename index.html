@@ -103,6 +103,20 @@
             color: var(--indigo-600);
             background: var(--indigo-50);
         }
+        .nav-login {
+            background: var(--indigo-50) !important;
+            color: var(--indigo-600) !important;
+            padding: 8px 20px !important;
+            border-radius: 50px !important;
+            font-weight: 600 !important;
+            border: 1.5px solid var(--indigo-200) !important;
+            transition: background 0.2s, border-color 0.2s, transform 0.2s !important;
+        }
+        .nav-login:hover {
+            background: var(--indigo-100) !important;
+            border-color: var(--indigo-400) !important;
+            transform: translateY(-1px) !important;
+        }
         .nav-cta {
             background: var(--indigo-600) !important;
             color: var(--white) !important;
@@ -1969,7 +1983,7 @@
                 <a href="#how-it-works">How It Works</a>
                 <a href="#why-readee">Why Readee</a>
                 <a href="teachers.html">For Teachers</a>
-                <a href="https://learn.readee.app/login">Log In</a>
+                <a href="https://learn.readee.app/login" class="nav-login">Log In</a>
             </div>
             <button class="mobile-toggle" onclick="document.getElementById('mobileNav').classList.add('open')" aria-label="Menu">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
@@ -2246,13 +2260,6 @@
             entries.forEach(e => {
                 if (!e.isIntersecting) return;
                 e.target.classList.add('visible');
-                // Stagger benefit cards when their parent section reveals
-                const cards = e.target.querySelectorAll('.benefit-card');
-                if (cards.length) {
-                    cards.forEach((card, i) => {
-                        setTimeout(() => card.classList.add('visible'), 300 + i * 150);
-                    });
-                }
             });
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
@@ -2306,6 +2313,13 @@
                     }
                     requestAnimationFrame(tick);
                 });
+                // Trigger benefit cards after count-up completes
+                const cards = document.querySelectorAll('.benefit-card');
+                if (cards.length) {
+                    cards.forEach((card, i) => {
+                        setTimeout(() => card.classList.add('visible'), 1800 + i * 150);
+                    });
+                }
             });
         }, { threshold: 0.5 });
         document.querySelectorAll('.stat-bar').forEach(el => statObserver.observe(el));
