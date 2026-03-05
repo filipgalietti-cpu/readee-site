@@ -24,6 +24,7 @@ const TEMP_DIR = path.join(__dirname, ".recording-tmp");
 const VIEWPORT = { width: 1134, height: 736, deviceScaleFactor: 2 };
 
 const DEMOS = [
+  { path: "/demo/hero", output: "hero-demo.mp4", duration: 23 },
   { path: "/demo/lesson", output: "assessment-demo.mp4", duration: 14 },
   { path: "/demo/roadmap", output: "roadmap-demo.mp4", duration: 22 },
   { path: "/demo/analytics", output: "analytics-demo.mp4", duration: 18 },

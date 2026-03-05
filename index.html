@@ -261,10 +261,31 @@
             font-weight: 600;
         }
 
-        /* Hero visual - App preview card */
+        /* Hero visual - App demo video */
         .hero-visual {
             position: relative;
             animation: fadeUp 0.8s 0.3s ease both;
+        }
+        .hero-video-frame {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(30,27,75,0.15), 0 0 0 1px rgba(99,102,241,0.1);
+            position: relative;
+        }
+        .hero-video-frame::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--indigo-500), var(--violet-500), var(--indigo-400));
+            z-index: 1;
+        }
+        .hero-video-frame video {
+            display: block;
+            width: 100%;
+            height: auto;
+            scale: 1.15;
+            transform-origin: center 20%;
         }
         .app-preview {
             background: var(--white);
@@ -1983,39 +2004,10 @@
 
             <!-- App Preview -->
             <div class="hero-visual">
-                <span class="float-star">⭐</span>
-                <span class="float-star">✨</span>
-                <span class="float-star">🌟</span>
-                <div class="app-preview">
-                    <div class="app-header">
-                        <div class="app-user">
-                            <div class="app-avatar">B</div>
-                            <div>
-                                <div class="app-name">Bobby</div>
-                                <div class="app-level">K Level</div>
-                            </div>
-                        </div>
-                        <div class="app-streak">⭐ 120 XP</div>
-                    </div>
-                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
-                        <span style="font-size: 0.8rem; color: var(--gray-500); font-weight: 500;">Reading Level</span>
-                        <span style="background: var(--indigo-50); color: var(--indigo-700); padding: 4px 14px; border-radius: 50px; font-size: 0.78rem; font-weight: 700;">Kindergarten</span>
-                    </div>
-                    <div style="margin-bottom: 16px;">
-                        <div style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 6px;">
-                            <span style="color: var(--gray-500);">Progress</span>
-                            <span style="color: var(--gray-700); font-weight: 500;">2 of 5 lessons complete</span>
-                        </div>
-                        <div class="progress-bar"><div class="progress-fill" style="width: 40%; background: linear-gradient(90deg, var(--indigo-500), var(--violet-500));"></div></div>
-                    </div>
-                    <div class="app-story-card">
-                        <div class="story-icon">🍌</div>
-                        <div class="story-info">
-                            <div class="story-title">Quest with Readee</div>
-                            <div class="story-desc">Help Readee find the short vowels!</div>
-                        </div>
-                        <button class="story-btn">Start</button>
-                    </div>
+                <div class="hero-video-frame">
+                    <video autoplay loop muted playsinline preload="auto">
+                        <source src="assets/hero-demo.mp4" type="video/mp4">
+                    </video>
                 </div>
             </div>
         </div>
