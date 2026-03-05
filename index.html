@@ -1470,8 +1470,18 @@
             line-height: 1.2;
         }
         .stat-emoji {
-            font-size: 1.4rem;
-            margin-right: 4px;
+            margin-right: 6px;
+            display: inline-flex;
+            vertical-align: middle;
+        }
+        .stat-emoji svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--indigo-300);
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
         .stat-label {
             font-size: 0.85rem;
@@ -2015,19 +2025,19 @@
     <div class="stat-bar">
         <div class="stat-bar-grid">
             <div class="stat-item">
-                <div class="stat-number"><span class="stat-emoji">📚</span>896</div>
+                <div class="stat-number"><span class="stat-emoji"><svg viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><path d="M8 7h6"/><path d="M8 11h8"/></svg></span>896</div>
                 <div class="stat-label">Practice Questions</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number"><span class="stat-emoji">🔊</span>1,792</div>
+                <div class="stat-number"><span class="stat-emoji"><svg viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg></span>1,792</div>
                 <div class="stat-label">Audio Files</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number"><span class="stat-emoji">🎓</span>5</div>
+                <div class="stat-number"><span class="stat-emoji"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 4 3 6 3s6-1 6-3v-5"/></svg></span>5</div>
                 <div class="stat-label">Grade Levels (K–4th)</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number"><span class="stat-emoji">⏱️</span>10 min</div>
+                <div class="stat-number"><span class="stat-emoji"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>10 min</div>
                 <div class="stat-label">Daily Lessons</div>
             </div>
         </div>
