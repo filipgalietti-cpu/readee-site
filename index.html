@@ -194,7 +194,7 @@
             background: var(--emerald-500);
             animation: pulse-dot 2s infinite;
         }
-        .hero h1 {
+.hero h1 {
             font-size: clamp(2.2rem, 4.5vw, 3.6rem);
             font-weight: 800;
             line-height: 1.1;
@@ -283,6 +283,15 @@
         .hero-visual {
             position: relative;
             animation: fadeUp 0.8s 0.3s ease both;
+        }
+        .hero-bunny {
+            position: absolute;
+            bottom: -30px;
+            left: -75px;
+            width: 130px;
+            height: auto;
+            z-index: 3;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1));
         }
         .hero-video-frame {
             border-radius: var(--radius-lg);
@@ -1996,6 +2005,7 @@
             .hero-actions { justify-content: center; }
             .hero-trust { justify-content: center; }
             .hero-visual { max-width: 380px; margin: 0 auto; }
+            .hero-bunny { width: 100px; left: -30px; bottom: -20px; }
             .float-star { display: none; }
             .problem-grid { grid-template-columns: 1fr; }
             .benefits-grid { grid-template-columns: 1fr 1fr; }
@@ -2113,6 +2123,7 @@
                         <source src="assets/hero-demo.mp4" type="video/mp4">
                     </video>
                 </div>
+                <img src="assets/bunny-hero.png" alt="Readee Bunny" class="hero-bunny">
             </div>
         </div>
     </section>
