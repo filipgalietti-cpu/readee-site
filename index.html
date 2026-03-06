@@ -136,27 +136,33 @@
             align-items: center;
             position: relative;
             overflow: hidden;
-            background: linear-gradient(160deg, var(--indigo-50) 0%, var(--white) 40%, #f5f0ff 100%);
+            background: linear-gradient(160deg, #e8e0ff 0%, var(--white) 35%, #f0e8ff 65%, #e0ecff 100%);
         }
         .hero::before {
             content: '';
             position: absolute;
-            top: -200px;
-            right: -200px;
-            width: 600px;
-            height: 600px;
+            top: -150px;
+            right: -100px;
+            width: 700px;
+            height: 700px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, rgba(139,92,246,0.08) 40%, transparent 70%);
+            animation: orb-drift 12s ease-in-out infinite;
         }
         .hero::after {
             content: '';
             position: absolute;
-            bottom: -100px;
-            left: -100px;
-            width: 400px;
-            height: 400px;
+            bottom: -80px;
+            left: -80px;
+            width: 500px;
+            height: 500px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(139,92,246,0.12) 0%, rgba(99,102,241,0.05) 50%, transparent 70%);
+            animation: orb-drift 10s ease-in-out infinite reverse;
+        }
+        @keyframes orb-drift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -20px) scale(1.05); }
         }
         .hero-inner {
             max-width: 1200px;
@@ -435,7 +441,7 @@
 
         /* ===== URGENCY STAT BAR ===== */
         .stat-bar {
-            background: var(--indigo-900);
+            background: linear-gradient(135deg, #1a1545 0%, var(--indigo-900) 50%, #2d1b69 100%);
             padding: 20px 24px;
             text-align: center;
         }
@@ -451,7 +457,8 @@
         /* ===== PROBLEM/SOLUTION ===== */
         .problem {
             padding: 100px 24px;
-            background: var(--white);
+            background: linear-gradient(180deg, var(--white) 0%, #f8f6ff 50%, var(--white) 100%);
+            position: relative;
         }
         .problem-inner {
             max-width: 1000px;
@@ -497,7 +504,7 @@
             text-align: left;
         }
         .benefit-card {
-            background: var(--gray-50);
+            background: var(--white);
             border: 1px solid var(--gray-200);
             border-radius: var(--radius);
             padding: 28px 24px;
@@ -595,7 +602,20 @@
         /* ===== HOW IT WORKS ===== */
         .method {
             padding: 100px 24px;
-            background: linear-gradient(180deg, var(--gray-50) 0%, var(--white) 100%);
+            background: linear-gradient(180deg, #f0ecff 0%, #f8f6ff 40%, var(--white) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .method::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -200px;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 70%);
+            pointer-events: none;
         }
         .method-inner {
             max-width: 1100px;
@@ -783,7 +803,7 @@
         /* ===== SOCIAL PROOF ===== */
         .proof {
             padding: 100px 24px;
-            background: var(--white);
+            background: linear-gradient(180deg, var(--white) 0%, #faf8ff 100%);
         }
         .proof-inner {
             max-width: 1000px;
@@ -804,10 +824,16 @@
             text-align: left;
         }
         .testimonial-card {
-            background: var(--gray-50);
+            background: var(--white);
             border-radius: var(--radius);
             padding: 28px;
-            border: 1px solid var(--gray-100);
+            border: 1px solid var(--gray-200);
+            transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+        }
+        .testimonial-card:hover {
+            border-color: var(--indigo-300);
+            box-shadow: 0 8px 30px rgba(99,102,241,0.08);
+            transform: translateY(-3px);
         }
         .testimonial-stars {
             color: var(--amber-400);
@@ -880,7 +906,20 @@
         /* ===== PRICING ===== */
         .pricing {
             padding: 100px 24px;
-            background: linear-gradient(180deg, var(--gray-50) 0%, var(--white) 100%);
+            background: linear-gradient(180deg, #f0ecff 0%, #f8f6ff 40%, var(--white) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .pricing::before {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99,102,241,0.07) 0%, transparent 70%);
+            pointer-events: none;
         }
         .pricing-inner {
             max-width: 800px;
@@ -911,6 +950,13 @@
             border-radius: var(--radius-lg);
             padding: 36px 32px;
             position: relative;
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s, border-color 0.3s;
+        }
+        .pricing-card.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         .pricing-card.featured {
             background: #1e1b4b;
@@ -1047,7 +1093,31 @@
         /* ===== HOW IT WORKS ===== */
         .how-it-works {
             padding: 100px 24px;
-            background: linear-gradient(135deg, var(--indigo-900) 0%, var(--indigo-800) 50%, #2d1b69 100%);
+            background: linear-gradient(135deg, #1a1545 0%, var(--indigo-900) 30%, #2d1b69 70%, #1e1050 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .how-it-works::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99,102,241,0.2) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .how-it-works::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(139,92,246,0.15) 0%, transparent 60%);
+            pointer-events: none;
         }
         .how-it-works-inner {
             max-width: 900px;
@@ -1099,16 +1169,20 @@
         /* ===== TEACHERS ===== */
         .teachers {
             padding: 100px 24px;
-            background: var(--white);
+            background: linear-gradient(180deg, var(--white) 0%, #f8f6ff 50%, var(--white) 100%);
             position: relative;
             overflow: hidden;
         }
         .teachers::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 1px;
-            background: var(--gray-200);
+            top: 50%;
+            left: -150px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99,102,241,0.06) 0%, transparent 70%);
+            pointer-events: none;
         }
         .teachers-inner {
             max-width: 1100px;
@@ -1327,7 +1401,7 @@
         /* ===== FAQ ===== */
         .faq {
             padding: 100px 24px;
-            background: var(--gray-50);
+            background: linear-gradient(180deg, #f0ecff 0%, var(--gray-50) 100%);
         }
         .faq-inner {
             max-width: 700px;
@@ -1393,8 +1467,22 @@
         /* ===== FINAL CTA ===== */
         .final-cta {
             padding: 100px 24px;
-            background: var(--white);
+            background: linear-gradient(180deg, var(--white) 0%, #ede8ff 100%);
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 60%);
+            pointer-events: none;
         }
         .final-cta-inner {
             max-width: 600px;
@@ -2040,12 +2128,12 @@
     <div class="stat-bar">
         <div class="stat-bar-grid">
             <div class="stat-item">
-                <div class="stat-number"><span class="stat-emoji"><svg viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><path d="M8 7h6"/><path d="M8 11h8"/></svg></span><span class="count-up" data-target="896">0</span></div>
+                <div class="stat-number"><span class="stat-emoji"><svg viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><path d="M8 7h6"/><path d="M8 11h8"/></svg></span><span class="count-up" data-target="900" data-suffix="+">0</span></div>
                 <div class="stat-label">Practice Questions</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number"><span class="stat-emoji"><svg viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg></span><span class="count-up" data-target="1792" data-suffix="" data-comma="true">0</span></div>
-                <div class="stat-label">Audio Files</div>
+                <div class="stat-number"><span class="stat-emoji"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span><span class="count-up" data-target="175" data-suffix="+">0</span></div>
+                <div class="stat-label">Core Standards</div>
             </div>
             <div class="stat-item">
                 <div class="stat-number"><span class="stat-emoji"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 4 3 6 3s6-1 6-3v-5"/></svg></span><span class="count-up" data-target="5">0</span></div>
@@ -2280,6 +2368,18 @@
             });
         }, { threshold: 0.5 });
         document.querySelectorAll('.stat-bar').forEach(el => statObserver.observe(el));
+
+        // Pricing cards staggered reveal
+        const pricingObserver = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (!e.isIntersecting) return;
+                pricingObserver.unobserve(e.target);
+                e.target.querySelectorAll('.pricing-card').forEach((card, i) => {
+                    setTimeout(() => card.classList.add('visible'), i * 180);
+                });
+            });
+        }, { threshold: 0.2 });
+        document.querySelectorAll('.pricing-grid').forEach(el => pricingObserver.observe(el));
 
     </script>
 
