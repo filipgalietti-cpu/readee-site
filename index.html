@@ -1012,6 +1012,51 @@
         .pricing-card.featured .pricing-amount {
             color: var(--white);
         }
+        .pricing-struck {
+            position: relative;
+            display: inline-block;
+            font-size: 1.4rem !important;
+            margin-right: 4px;
+            transition: opacity 0.4s ease 0.3s;
+        }
+        .pricing-struck::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            height: 3px;
+            width: 0;
+            background: #fb7185;
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+        .pricing-struck.struck {
+            opacity: 0.45;
+        }
+        .pricing-struck.struck::after {
+            width: 100%;
+        }
+        .pricing-trial-price {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        .pricing-trial-price.show {
+            opacity: 1;
+            transform: translateY(0);
+            color: #34d399 !important;
+        }
+        .pricing-trial-note {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.55);
+            margin-bottom: 4px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .pricing-trial-note.show {
+            opacity: 1;
+        }
         .pricing-period {
             font-size: 0.9rem;
             color: var(--gray-500);
@@ -2262,7 +2307,8 @@
                 <div class="pricing-card featured">
                     <div class="pricing-badge">Most Popular</div>
                     <h3>Readee+</h3>
-                    <div class="pricing-price"><span class="pricing-amount">$9.99</span> <span class="pricing-period">/month</span></div>
+                    <div class="pricing-price"><span class="pricing-amount pricing-struck">$9.99</span> <span class="pricing-amount pricing-trial-price">$0.00</span> <span class="pricing-period">/month</span></div>
+                    <div class="pricing-trial-note">Free for 7 days, then $9.99/mo</div>
                     <div class="pricing-annual">or $79.99/year <span class="pricing-save">Save 40%</span></div>
                     <ul class="pricing-features">
                         <li>Full lesson library (40+ lessons)</li>
@@ -2390,7 +2436,7 @@
         }, { threshold: 0.5 });
         document.querySelectorAll('.stat-bar').forEach(el => statObserver.observe(el));
 
-        // Pricing cards staggered reveal
+        // Pricing cards staggered reveal + strikethrough animation
         const pricingObserver = new IntersectionObserver((entries) => {
             entries.forEach(e => {
                 if (!e.isIntersecting) return;
@@ -2398,6 +2444,13 @@
                 e.target.querySelectorAll('.pricing-card').forEach((card, i) => {
                     setTimeout(() => card.classList.add('visible'), i * 180);
                 });
+                // Strikethrough animation on the featured card
+                const struck = e.target.querySelector('.pricing-struck');
+                const trial = e.target.querySelector('.pricing-trial-price');
+                const note = e.target.querySelector('.pricing-trial-note');
+                if (struck) setTimeout(() => struck.classList.add('struck'), 700);
+                if (trial) setTimeout(() => trial.classList.add('show'), 900);
+                if (note) setTimeout(() => note.classList.add('show'), 1100);
             });
         }, { threshold: 0.2 });
         document.querySelectorAll('.pricing-grid').forEach(el => pricingObserver.observe(el));
