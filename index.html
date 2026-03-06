@@ -49,6 +49,9 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        html {
+            overflow-x: hidden;
+        }
         body {
             font-family: 'Nunito', -apple-system, sans-serif;
             color: var(--gray-800);
@@ -127,7 +130,7 @@
             background: var(--indigo-700) !important;
             transform: translateY(-1px) !important;
         }
-        .mobile-toggle { display: none; background: none; border: none; cursor: pointer; }
+        .mobile-toggle { display: none; background: none; border: none; cursor: pointer; color: #4338ca; }
 
         /* ===== HERO ===== */
         .hero {
@@ -292,6 +295,15 @@
             height: auto;
             z-index: 3;
             filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1));
+        }
+        .hero-video-frame::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 80px;
+            background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.95));
+            z-index: 2;
+            pointer-events: none;
         }
         .hero-video-frame {
             border-radius: var(--radius-lg);
@@ -466,7 +478,7 @@
         /* ===== PROBLEM/SOLUTION ===== */
         .problem {
             padding: 100px 24px;
-            background: linear-gradient(180deg, var(--white) 0%, #f8f6ff 50%, var(--white) 100%);
+            background: linear-gradient(180deg, #f5f3ff 0%, #f8f6ff 50%, var(--white) 100%);
             position: relative;
         }
         .problem-inner {
@@ -487,7 +499,7 @@
             margin-bottom: 16px;
         }
         .problem h2 {
-            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            font-size: clamp(2rem, 4vw, 2.8rem);
             font-weight: 800;
             color: var(--indigo-900);
             margin-bottom: 20px;
@@ -516,7 +528,7 @@
             background: var(--white);
             border: 1px solid var(--gray-200);
             border-radius: var(--radius);
-            padding: 28px 24px;
+            padding: 24px 24px 20px;
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.3s, box-shadow 0.3s;
@@ -536,8 +548,8 @@
             justify-content: center;
         }
         .benefit-icon img {
-            width: 200px;
-            height: 200px;
+            width: 160px;
+            height: 150px;
             object-fit: contain;
         }
         .benefit-card h3 {
@@ -548,7 +560,7 @@
         }
         .benefit-card p {
             font-size: 0.9rem;
-            color: var(--gray-500);
+            color: var(--gray-600);
             line-height: 1.6;
         }
         .pain-card, .solution-card {
@@ -805,7 +817,7 @@
         /* ===== SOCIAL PROOF ===== */
         .proof {
             padding: 100px 24px;
-            background: linear-gradient(180deg, var(--white) 0%, #faf8ff 100%);
+            background: linear-gradient(180deg, #f5f3ff 0%, #faf8ff 100%);
         }
         .proof-inner {
             max-width: 1000px;
@@ -2008,7 +2020,6 @@
             .hero-bunny { width: 100px; left: -30px; bottom: -20px; }
             .float-star { display: none; }
             .problem-grid { grid-template-columns: 1fr; }
-            .benefits-grid { grid-template-columns: 1fr 1fr; }
             .steps { grid-template-columns: 1fr; }
             .step-card { grid-column: span 1 !important; }
             .testimonials { grid-template-columns: 1fr; }
@@ -2018,17 +2029,23 @@
         @media (max-width: 768px) {
             .hero-inner { padding: 100px 20px 56px; gap: 32px; }
             .hero-visual { max-width: 400px; }
+            .benefits-grid { grid-template-columns: 1fr !important; }
+            .benefit-card { border: 1px solid var(--gray-200); }
         }
         @media (max-width: 640px) {
             .nav-links { display: none; }
             .mobile-toggle { display: block; }
             .hero-inner { padding: 90px 16px 40px; }
+            .hero-content { padding-top: 32px; }
             .hero h1 { font-size: 2rem; }
             .hero-sub { font-size: 1rem; }
+            .hero-actions { flex-direction: column; align-items: stretch; }
+            .hero-actions .btn-primary { justify-content: center; width: 100%; }
+            .hero-actions .btn-secondary { justify-content: center; }
             .hero-trust-items { flex-wrap: wrap; justify-content: center; gap: 12px; }
             .hero-visual { max-width: 100%; }
+            .hero-bunny { display: none; }
             .app-preview { padding: 20px; }
-            .benefits-grid { grid-template-columns: 1fr; }
             .pricing-grid { grid-template-columns: 1fr; }
             .footer-top { grid-template-columns: 1fr; }
         }
@@ -2154,7 +2171,7 @@
     <section class="problem reveal" id="why-readee">
         <div class="problem-inner">
             <h2>Why Readee?</h2>
-            <div class="benefits-grid" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="benefits-grid">
                 <div class="benefit-card">
                     <div class="benefit-icon"><img src="assets/bunny-specialist.png" alt="Reading Specialist"></div>
                     <h3>Created by a Reading Specialist</h3>
